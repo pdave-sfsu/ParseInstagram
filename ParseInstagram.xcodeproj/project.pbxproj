@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		65426DE9431DF0D0522F8560 /* Pods_ParseInstagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF63C8A0B1BB4171FA674E06 /* Pods_ParseInstagram.framework */; };
 		A55EABF81E5FD68600E14F97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55EABF71E5FD68600E14F97 /* AppDelegate.swift */; };
-		A55EABFA1E5FD68600E14F97 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55EABF91E5FD68600E14F97 /* ViewController.swift */; };
 		A55EABFD1E5FD68600E14F97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A55EABFB1E5FD68600E14F97 /* Main.storyboard */; };
 		A55EABFF1E5FD68600E14F97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A55EABFE1E5FD68600E14F97 /* Assets.xcassets */; };
 		A55EAC021E5FD68600E14F97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A55EAC001E5FD68600E14F97 /* LaunchScreen.storyboard */; };
+		A55EAC0A1E5FF12000E14F97 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55EAC091E5FF12000E14F97 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,11 +20,11 @@
 		4A04F6708BC3187B5EE056B8 /* Pods-ParseInstagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParseInstagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-ParseInstagram/Pods-ParseInstagram.release.xcconfig"; sourceTree = "<group>"; };
 		A55EABF41E5FD68600E14F97 /* ParseInstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParseInstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A55EABF71E5FD68600E14F97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A55EABF91E5FD68600E14F97 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A55EABFC1E5FD68600E14F97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A55EABFE1E5FD68600E14F97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A55EAC011E5FD68600E14F97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A55EAC031E5FD68600E14F97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A55EAC091E5FF12000E14F97 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CF63C8A0B1BB4171FA674E06 /* Pods_ParseInstagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParseInstagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -79,11 +79,11 @@
 			isa = PBXGroup;
 			children = (
 				A55EABF71E5FD68600E14F97 /* AppDelegate.swift */,
-				A55EABF91E5FD68600E14F97 /* ViewController.swift */,
 				A55EABFB1E5FD68600E14F97 /* Main.storyboard */,
 				A55EABFE1E5FD68600E14F97 /* Assets.xcassets */,
 				A55EAC001E5FD68600E14F97 /* LaunchScreen.storyboard */,
 				A55EAC031E5FD68600E14F97 /* Info.plist */,
+				A55EAC091E5FF12000E14F97 /* LoginViewController.swift */,
 			);
 			path = ParseInstagram;
 			sourceTree = "<group>";
@@ -211,7 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A55EABFA1E5FD68600E14F97 /* ViewController.swift in Sources */,
+				A55EAC0A1E5FF12000E14F97 /* LoginViewController.swift in Sources */,
 				A55EABF81E5FD68600E14F97 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,6 +376,7 @@
 				A55EAC081E5FD68600E14F97 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
