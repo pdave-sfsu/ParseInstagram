@@ -13,6 +13,7 @@
 		A55EABFF1E5FD68600E14F97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A55EABFE1E5FD68600E14F97 /* Assets.xcassets */; };
 		A55EAC021E5FD68600E14F97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A55EAC001E5FD68600E14F97 /* LaunchScreen.storyboard */; };
 		A55EAC0A1E5FF12000E14F97 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55EAC091E5FF12000E14F97 /* LoginViewController.swift */; };
+		A55EAC101E60F7CA00E14F97 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55EAC0F1E60F7CA00E14F97 /* TimelineViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		A55EAC011E5FD68600E14F97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A55EAC031E5FD68600E14F97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A55EAC091E5FF12000E14F97 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A55EAC0F1E60F7CA00E14F97 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		CF63C8A0B1BB4171FA674E06 /* Pods_ParseInstagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParseInstagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				A55EAC091E5FF12000E14F97 /* LoginViewController.swift */,
+				A55EAC0F1E60F7CA00E14F97 /* TimelineViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 			files = (
 				A55EAC0A1E5FF12000E14F97 /* LoginViewController.swift in Sources */,
 				A55EABF81E5FD68600E14F97 /* AppDelegate.swift in Sources */,
+				A55EAC101E60F7CA00E14F97 /* TimelineViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
