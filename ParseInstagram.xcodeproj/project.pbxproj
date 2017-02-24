@@ -78,14 +78,30 @@
 		A55EABF61E5FD68600E14F97 /* ParseInstagram */ = {
 			isa = PBXGroup;
 			children = (
+				A55EAC0C1E60F28600E14F97 /* Model */,
+				A55EAC0B1E60F27900E14F97 /* ViewController */,
 				A55EABF71E5FD68600E14F97 /* AppDelegate.swift */,
 				A55EABFB1E5FD68600E14F97 /* Main.storyboard */,
 				A55EABFE1E5FD68600E14F97 /* Assets.xcassets */,
 				A55EAC001E5FD68600E14F97 /* LaunchScreen.storyboard */,
 				A55EAC031E5FD68600E14F97 /* Info.plist */,
-				A55EAC091E5FF12000E14F97 /* LoginViewController.swift */,
 			);
 			path = ParseInstagram;
+			sourceTree = "<group>";
+		};
+		A55EAC0B1E60F27900E14F97 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A55EAC091E5FF12000E14F97 /* LoginViewController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		A55EAC0C1E60F28600E14F97 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

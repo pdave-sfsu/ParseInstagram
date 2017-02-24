@@ -27,6 +27,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             })
         )
         
+        if PFUser.current() != nil {
+            
+            print("There is a current user.")
+            
+            //reference the storyboard
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            //Get the TweetsNavigationController using storyboard ID
+            let vc = storyboard.instantiateViewController(withIdentifier: "InstagramNavigationController")
+            
+            //rootViewController determines the starting viewController
+            window?.rootViewController = vc
+            
+        }
+        
         return true
     }
 
