@@ -64,7 +64,7 @@
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="123.68815592203899"/>
         </scene>
-        <!--Timeline View Controller-->
+        <!--Timeline-->
         <scene sceneID="GQU-IV-Gxc">
             <objects>
                 <viewController id="sx2-7O-Rye" customClass="TimelineViewController" customModule="ParseInstagram" customModuleProvider="target" sceneMemberID="viewController">
@@ -77,7 +77,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="7m6-Yr-HgH">
+                    <navigationItem key="navigationItem" title="Timeline" id="7m6-Yr-HgH">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="JMT-2f-fWI">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OVM-Bt-nZ1">
                                 <rect key="frame" x="16" y="7" width="83" height="30"/>
@@ -97,7 +97,7 @@
             </objects>
             <point key="canvasLocation" x="1754.4000000000001" y="130.88455772113943"/>
         </scene>
-        <!--Add Photo View Controller-->
+        <!--Add Photo-->
         <scene sceneID="Mdn-mH-8BE">
             <objects>
                 <viewController id="Wc9-B5-pwS" customClass="AddPhotoViewController" customModule="ParseInstagram" customModuleProvider="target" sceneMemberID="viewController">
@@ -108,9 +108,39 @@
                     <view key="view" contentMode="scaleToFill" id="Irb-1Y-aB0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nS2-4h-ZtP">
+                                <rect key="frame" x="163" y="441" width="49" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submitButtonPressed:" destination="Wc9-B5-pwS" eventType="touchUpInside" id="8Dd-BG-wJB"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1hU-3t-jHl">
+                                <rect key="frame" x="47" y="383" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eel-rX-PiZ">
+                                <rect key="frame" x="47" y="157" width="280" height="218"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add a Photo"/>
+                                <connections>
+                                    <action selector="addAPhotoButtonPressed:" destination="Wc9-B5-pwS" eventType="touchUpInside" id="yjG-EV-0nN"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="tiq-Sq-MkP"/>
+                    <navigationItem key="navigationItem" title="Add Photo" id="tiq-Sq-MkP"/>
+                    <connections>
+                        <outlet property="addAPhotoButton" destination="eel-rX-PiZ" id="nhj-Fw-LRa"/>
+                        <outlet property="photoCaptionTextField" destination="1hU-3t-jHl" id="S5V-EU-ypK"/>
+                        <outlet property="submitButton" destination="nS2-4h-ZtP" id="e0h-qH-NeO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sem-Ks-foN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
