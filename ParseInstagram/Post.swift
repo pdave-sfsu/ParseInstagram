@@ -7,30 +7,22 @@
 //
 
 import UIKit
+//Parse
 import Parse
 
+//This class is meant to send posts to Parse
 class Post: NSObject {
     
-    /**
-     * Other methods
-     */
-    
-    /**
-     Method to add a user post to Parse (uploading image file)
-     
-     - parameter image: Image that the user wants upload to parse
-     - parameter caption: Caption text input by the user
-     - parameter completion: Block to be executed after save operation is complete
-     */
-    
+    //adds user post to Parse.
+    //Parameters are image, caption, and completion block
     class func postUserImage(image: UIImage?, withCaption caption: String?, withCompletion completion: PFBooleanResultBlock?) {
         
         // Create Parse object PFObject
         let post = PFObject(className: "Post")
         
         // Add relevant fields to the object
-        post["media"] = getPFFileFromImage(image: image) // PFFile column type
-        post["author"] = PFUser.current() // Pointer column type that points to PFUser
+        post["media"] = getPFFileFromImage(image: image)
+        post["author"] = PFUser.current()
         post["caption"] = caption
         post["likesCount"] = 0
         post["commentsCount"] = 0
@@ -39,13 +31,8 @@ class Post: NSObject {
         post.saveInBackground(block: completion)
     }
     
-    /**
-     Method to convert UIImage to PFFile
-     
-     - parameter image: Image that the user wants to upload to parse
-     
-     - returns: PFFile for the the data in the image
-     */
+
+    //Converts the UIImage to PFFile
     class func getPFFileFromImage(image: UIImage?) -> PFFile? {
         
         // check if image is not nil
@@ -53,6 +40,8 @@ class Post: NSObject {
             
             // get image data and check if that is not nil
             if let imageData = UIImagePNGRepresentation(image) {
+                
+                //returns file
                 return PFFile(name: "image.png", data: imageData)
             }
         }

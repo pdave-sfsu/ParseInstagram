@@ -7,15 +7,22 @@
 //
 
 import UIKit
+//Parse
+import Parse
 
+//Posts the photo to Parse
+//import UIImagePickerControllerDelegate, UINavigationControllerDelegate
 class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    //outlets
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var addAPhotoButton: UIButton!
     @IBOutlet weak var photoCaptionTextField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
     
+    //specific image being posted
     var image: UIImage?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,30 +30,29 @@ class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate,
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController,
-                               didFinishPickingMediaWithInfo info: [String : Any]) {
+
+    //Method to handle choosing an image from the photo library
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
         // Get the image captured by the UIImagePickerController
         let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
         
-        // Do something with the images (based on your use case)
+        //Set image to the global image property
         image = originalImage
         
+        //Change the imageView
         photoImageView.image = image
         
         // Dismiss UIImagePickerController to go back to your original view controller
         dismiss(animated: true, completion: nil)
     }
     
+    
+    //Bring up the photo library for user to choose a photo
     @IBAction func addAPhotoButtonPressed(_ sender: Any) {
         
-        print("Add a photo button pressed")
-        
+        //Code for choosing an image from the Photo Library
         let vc = UIImagePickerController()
         vc.delegate = self
         vc.allowsEditing = true
@@ -56,25 +62,29 @@ class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate,
         
     }
     
+    
+    //lets the user post an image with the caption
     @IBAction func submitButtonPressed(_ sender: Any) {
         
         print("Submit button pressed")
         
+        //built-in Parse method that posts the image
+        //Specifically, creates an object that is saved on Parse servers
         Post.postUserImage(image: image, withCaption: photoCaptionTextField.text) { (success: Bool, error: Error?) in
             
+            //If success
             if success {
                 print("Photo got posted")
                 
-                
-                
+            //Error
             } else {
-                print("Photo error!")
+                print("AddPhotoViewController/submitButtonPressed Error: \(error?.localizedDescription)")
             }
         }
-        
-        
     }
     
+    
+    //Never needed to resize image and seems to work fine without it
 //    func resize(image: UIImage, newSize: CGSize) -> UIImage {
 //        let resizeImageView = UIImageView(frame: CGRectMake(0, 0, newSize.width, newSize.height))
 //        resizeImageView.contentMode = UIViewContentMode.scaleAspectFill
@@ -86,6 +96,11 @@ class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate,
 //        UIGraphicsEndImageContext()
 //        return newImage!
 //    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
 
     /*
     // MARK: - Navigation

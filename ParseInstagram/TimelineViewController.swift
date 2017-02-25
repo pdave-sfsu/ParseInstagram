@@ -7,121 +7,112 @@
 //
 
 import UIKit
+//Parse
 import Parse
 
+//Home Timeline
+//import tableViewDelegate and tableViewDataSource
 class TimelineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    //outlet
     @IBOutlet weak var tableView: UITableView!
     
+    //posts to be displayed
     var posts: [PFObject]?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        //dataSource and delegate
         tableView.dataSource = self
         tableView.delegate = self
         
-        
-        
-        networkCall();
-        
-        tableView.reloadData()
-
+        //Network Call
+        networkCall()
 
         // Do any additional setup after loading the view.
     }
     
+    
+    //Network Call method
     func networkCall() {
-//        var query = PFQuery(className: "Post")
-//        
-//        query.getObjectInBackground(withId: "imkmJsHVIH") { (post: PFObject?, error: Error?) in
-//            if error == nil {
-//                print(post)
-//            } else {
-//                print(error)
-//            }
-//        }
         
+        //Makes the query and specifies the class
+        //orders the posts by createdAt
+        //limits the query to 20
         let query = PFQuery(className: "Post")
         query.order(byDescending: "createdAt")
-        query.includeKey("author")
         query.limit = 20
         
+        //send query through built-in Parse method
         query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
+            
+            //If posts are not nil
             if let posts = posts {
-                // do something with the data fetched
-                print(posts)
                 
+                //sets global posts property
                 self.posts = posts
                 
+                //reloads data
                 self.tableView.reloadData()
                 
+            //Error
             } else {
-                // handle error
+                print("TimelineViewController/networkCall Error: \(error?.localizedDescription)")
             }
         }
-        
-        
-
-        
-        
-
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+
+    //logout Button Pressed
     @IBAction func logoutButtonPressed(_ sender: Any) {
         
-        print("logout button pressed")
-        
+        //built-in Parse methof
         PFUser.logOutInBackground { (error: Error?) in
+            
+            //if no error
             if error == nil {
+                
+                //performs segue to loginViewController
                 self.performSegue(withIdentifier: "logoutSegue", sender: nil)
             }
         }
-
-        
-        
     }
     
+    
+    //numberOfRowsInSection
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+        //if posts exist, return the count
         if let posts = posts {
             return posts.count
         } else {
             return 0
         }
+    }
+    
+    
+    //cellForRowAt
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        //cell property. Cast as InstagramPost.
+        let cell = tableView.dequeueReusableCell(withIdentifier: "InstagramPost", for: indexPath) as! InstagramPost
+        
+        //Retrieve proper post
+        let post = posts?[indexPath.row]
+        
+        //set post within InstagramPost class
+        cell.instagramPost = post
+        
+        return cell
         
     }
     
     
-    // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
-    // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
-    
-    @available(iOS 2.0, *)
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "InstagramPost", for: indexPath) as! InstagramPost
-        
-        let post = posts?[indexPath.row]
-        
-        print(post)
-        
-        cell.instagramPost = post
-        
-//        let image = post?["media"] as? UIImage
-//        let caption = post?["caption"] as? String
-//        
-//        cell.pictureImageView.image = image
-//        
-//        cell.captionLabel.text = caption
-        
-        return cell
-        
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 
     /*

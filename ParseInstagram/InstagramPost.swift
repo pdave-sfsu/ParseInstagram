@@ -7,26 +7,33 @@
 //
 
 import UIKit
+//import Parse and ParseUI
 import Parse
 import ParseUI
 
+//cell for tableView
+//Each instagramPost has an imageView and a caption
 class InstagramPost: UITableViewCell {
 
-    
+    //outlets
+    //pictureImageView is of type PFImageView, not UIImageView
     @IBOutlet weak var pictureImageView: PFImageView!
     @IBOutlet weak var captionLabel: UILabel!
     
+    //the PFObject being returned from Parse
     var instagramPost: PFObject! {
+    
         didSet {
             
-            print("This was run")
-            
+            //retrieves the picture file and then loads the image
             self.pictureImageView.file = instagramPost["media"] as? PFFile
             self.pictureImageView.loadInBackground()
             
+            //retrieves the caption and displays it
             self.captionLabel.text = instagramPost["caption"] as? String
         }
     }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

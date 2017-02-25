@@ -7,26 +7,30 @@
 //
 
 import UIKit
+//import Parse
 import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    //window
     var window: UIWindow?
 
-
+    //first method run when app opens
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         
-        
+        //Connects to the Parse account
+        //Has proper id's
         Parse.initialize(
             with: ParseClientConfiguration(block: { (configuration:ParseMutableClientConfiguration) -> Void in
                 configuration.applicationId = "tempcodpath2"
-                configuration.clientKey = "thismaybeatest"  // set to nil assuming you have not set clientKey
+                configuration.clientKey = "thismaybeatest"
                 configuration.server = "http://tempcodpath2.herokuapp.com/parse"
             })
         )
         
+        //if current user is present
+        //Uses Parse built-in method PFUser.current()
         if PFUser.current() != nil {
             
             print("There is a current user.")
@@ -34,81 +38,61 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //reference the storyboard
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
-            //Get the TweetsNavigationController using storyboard ID
+            //Get the InstagramNavigationController using storyboard ID
             let vc = storyboard.instantiateViewController(withIdentifier: "InstagramNavigationController")
             
             //rootViewController determines the starting viewController
+            //Set the starting viewController to be timelineViewController
             window?.rootViewController = vc
             
+            
+            //reference the timeline Navigation Controller by using the Storyboard ID
+            //Cast it as UINavigationController
+            let timelineNavigationController = storyboard.instantiateViewController(withIdentifier: "InstagramNavigationController") as! UINavigationController
+            
+            //Change the tab Bar title
+            timelineNavigationController.tabBarItem.title = "Timeline"
+            
+            //Adds the image onto the tab bar; 242px
+            //        timelineNavigationController.tabBarItem.image = UIImage(named: "nowPlaying24")
+            
+            
+            //reference the addPhoto Navigation Controller by using the Storyboard ID
+            //Cast it as UINavigationController
+            let addPhotoNavigationController = storyboard.instantiateViewController(withIdentifier: "addPhotoNavigationController") as! UINavigationController
+            
+            //Change the tab Bar title
+            addPhotoNavigationController.tabBarItem.title = "Add Photo"
+            
+            //Adds the image on the tab bar; 24px
+            //        addPhotoViewController.tabBarItem.image = UIImage(named: "topRated24")
+            
+            
+            //Creating the TAB BAR
+            
+            //Initialized the tabBarController
+            let tabBarController = UITabBarController()
+            
+            //Added the two navigation controllers to the tab bar
+            tabBarController.viewControllers = [timelineNavigationController, addPhotoNavigationController]
+            
+//            var navigationBarAppearace = UINavigationBar.appearance()
+//            
+//            navigationBarAppearace.tintColor = UIColor.black
+//            navigationBarAppearace.barTintColor = UIColor.orange
+//            
+//            // change navigation item title color
+//            navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.black]
+            
+            
+            //initialize window
+            window = UIWindow(frame: UIScreen.main.bounds)
+            
+            //rootViewController sets the initial view controller
+            window?.rootViewController = tabBarController
+            window?.makeKeyAndVisible()
+            
         }
-        
-        
-        
-        
-        //storyboard property
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        //FOR NOW PLAYING
-        
-        //reference the Navigation Controller by using the Storyboard ID
-        //Cast it as UINavigationController
-        let timelineNavigationController = storyboard.instantiateViewController(withIdentifier: "InstagramNavigationController") as! UINavigationController
-        
-        //reference the top View Contoller through Navigation Controller
-        //Cast it as MoviesViewController
-        
-        //Change the tab Bar title to "Now Playing"
-        timelineNavigationController.tabBarItem.title = "Timeline"
-        
-        //Adds the image onto the tab bar; 242px
-//        timelineNavigationController.tabBarItem.image = UIImage(named: "nowPlaying24")
-        
-        //FOR TOP RATED
-        
-        //reference the Navigation Controller by using the Storyboard ID
-        //Cast it as UINavigationController
-        let addPhotoNavigationController = storyboard.instantiateViewController(withIdentifier: "addPhotoNavigationController") as! UINavigationController
-        
-        //reference the View Contoller through Navigation Controller
-        //Cast it as MoviesViewController
-
-        
-        //Change the endpoint to "top_rated"
-
-        
-        //Change the tab Bar title to "Top Rated"
-        addPhotoNavigationController.tabBarItem.title = "Add Photo"
-        
-        //Adds the image on the tab bar; 24px
-//        addPhotoViewController.tabBarItem.image = UIImage(named: "topRated24")
-        
-        
-        
-        
-        //Creating the TAB BAR
-        
-        //Initialized the tabBarController
-        let tabBarController = UITabBarController()
-        
-        //Added the two view controllers to the tab bar
-        tabBarController.viewControllers = [timelineNavigationController, addPhotoNavigationController]
-        
-        var navigationBarAppearace = UINavigationBar.appearance()
-        
-        navigationBarAppearace.tintColor = UIColor.black
-        navigationBarAppearace.barTintColor = UIColor.orange
-        
-        // change navigation item title color
-        navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.black]
-        
-        
-        //initialize window
-        window = UIWindow(frame: UIScreen.main.bounds)
-        
-        //rootViewController sets the initial view controller
-        window?.rootViewController = tabBarController
-        window?.makeKeyAndVisible()
-        
         
         return true
     }
