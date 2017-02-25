@@ -42,6 +42,74 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }
         
+        
+        
+        
+        //storyboard property
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        //FOR NOW PLAYING
+        
+        //reference the Navigation Controller by using the Storyboard ID
+        //Cast it as UINavigationController
+        let timelineNavigationController = storyboard.instantiateViewController(withIdentifier: "InstagramNavigationController") as! UINavigationController
+        
+        //reference the top View Contoller through Navigation Controller
+        //Cast it as MoviesViewController
+        
+        //Change the tab Bar title to "Now Playing"
+        timelineNavigationController.tabBarItem.title = "Timeline"
+        
+        //Adds the image onto the tab bar; 242px
+//        timelineNavigationController.tabBarItem.image = UIImage(named: "nowPlaying24")
+        
+        //FOR TOP RATED
+        
+        //reference the Navigation Controller by using the Storyboard ID
+        //Cast it as UINavigationController
+        let addPhotoNavigationController = storyboard.instantiateViewController(withIdentifier: "addPhotoNavigationController") as! UINavigationController
+        
+        //reference the View Contoller through Navigation Controller
+        //Cast it as MoviesViewController
+
+        
+        //Change the endpoint to "top_rated"
+
+        
+        //Change the tab Bar title to "Top Rated"
+        addPhotoNavigationController.tabBarItem.title = "Add Photo"
+        
+        //Adds the image on the tab bar; 24px
+//        addPhotoViewController.tabBarItem.image = UIImage(named: "topRated24")
+        
+        
+        
+        
+        //Creating the TAB BAR
+        
+        //Initialized the tabBarController
+        let tabBarController = UITabBarController()
+        
+        //Added the two view controllers to the tab bar
+        tabBarController.viewControllers = [timelineNavigationController, addPhotoNavigationController]
+        
+        var navigationBarAppearace = UINavigationBar.appearance()
+        
+        navigationBarAppearace.tintColor = UIColor.black
+        navigationBarAppearace.barTintColor = UIColor.orange
+        
+        // change navigation item title color
+        navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.black]
+        
+        
+        //initialize window
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
+        //rootViewController sets the initial view controller
+        window?.rootViewController = tabBarController
+        window?.makeKeyAndVisible()
+        
+        
         return true
     }
 
