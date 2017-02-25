@@ -10,11 +10,12 @@ import UIKit
 
 class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var addAPhotoButton: UIButton!
     @IBOutlet weak var photoCaptionTextField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
     
-    
+    var image: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,9 @@ class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate,
         let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
         
         // Do something with the images (based on your use case)
+        image = originalImage
+        
+        photoImageView.image = image
         
         // Dismiss UIImagePickerController to go back to your original view controller
         dismiss(animated: true, completion: nil)
@@ -56,7 +60,29 @@ class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate,
         
         print("Submit button pressed")
         
+        Post.postUserImage(image: image, withCaption: photoCaptionTextField.text) { (success: Bool, error: Error?) in
+            
+            if success {
+                print("Photo got posted")
+            } else {
+                print("Photo error!")
+            }
+        }
+        
+        
     }
+    
+//    func resize(image: UIImage, newSize: CGSize) -> UIImage {
+//        let resizeImageView = UIImageView(frame: CGRectMake(0, 0, newSize.width, newSize.height))
+//        resizeImageView.contentMode = UIViewContentMode.scaleAspectFill
+//        resizeImageView.image = image
+//        
+//        UIGraphicsBeginImageContext(resizeImageView.frame.size)
+//        resizeImageView.layer.render(in: UIGraphicsGetCurrentContext()!)
+//        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+//        return newImage!
+//    }
 
     /*
     // MARK: - Navigation

@@ -109,6 +109,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eel-rX-PiZ">
+                                <rect key="frame" x="47" y="157" width="280" height="218"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add a Photo"/>
+                                <connections>
+                                    <action selector="addAPhotoButtonPressed:" destination="Wc9-B5-pwS" eventType="touchUpInside" id="yjG-EV-0nN"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nS2-4h-ZtP">
                                 <rect key="frame" x="163" y="441" width="49" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -124,14 +132,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eel-rX-PiZ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QP9-Cz-E7f">
                                 <rect key="frame" x="47" y="157" width="280" height="218"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add a Photo"/>
-                                <connections>
-                                    <action selector="addAPhotoButtonPressed:" destination="Wc9-B5-pwS" eventType="touchUpInside" id="yjG-EV-0nN"/>
-                                </connections>
-                            </button>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -139,6 +143,7 @@
                     <connections>
                         <outlet property="addAPhotoButton" destination="eel-rX-PiZ" id="nhj-Fw-LRa"/>
                         <outlet property="photoCaptionTextField" destination="1hU-3t-jHl" id="S5V-EU-ypK"/>
+                        <outlet property="photoImageView" destination="QP9-Cz-E7f" id="G10-1v-SOv"/>
                         <outlet property="submitButton" destination="nS2-4h-ZtP" id="e0h-qH-NeO"/>
                     </connections>
                 </viewController>
