@@ -22,9 +22,11 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.dataSource = self
         tableView.delegate = self
         
-        tableView.reloadData()
+        
         
         networkCall();
+        
+        tableView.reloadData()
 
 
         // Do any additional setup after loading the view.
@@ -53,11 +55,14 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
                 
                 self.posts = posts
                 
+                self.tableView.reloadData()
+                
             } else {
                 // handle error
             }
         }
-        tableView.reloadData()
+        
+        
 
         
         
@@ -104,12 +109,16 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         
         let post = posts?[indexPath.row]
         
-        let image = post?["media"] as? UIImage
-        let caption = post?["caption"] as? String
+        print(post)
         
-        cell.pictureImageView.image = image
+        cell.instagramPost = post
         
-        cell.captionLabel.text = caption
+//        let image = post?["media"] as? UIImage
+//        let caption = post?["caption"] as? String
+//        
+//        cell.pictureImageView.image = image
+//        
+//        cell.captionLabel.text = caption
         
         return cell
         

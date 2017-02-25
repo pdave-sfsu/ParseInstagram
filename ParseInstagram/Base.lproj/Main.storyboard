@@ -85,10 +85,10 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="387"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="StD-zk-V8A" id="NAH-OG-uGE">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="386"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="386.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YOD-D9-xfQ">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YOD-D9-xfQ" customClass="PFImageView">
                                                     <rect key="frame" x="0.0" y="5" width="375" height="225"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -103,7 +103,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="captionLabel" destination="Mi4-un-ufM" id="K27-NE-nZ8"/>
-                                            <outlet property="pictureImageView" destination="YOD-D9-xfQ" id="dVW-NX-jC5"/>
+                                            <outlet property="pictureImageView" destination="YOD-D9-xfQ" id="0Jm-j9-CCT"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

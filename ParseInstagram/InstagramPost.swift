@@ -7,12 +7,26 @@
 //
 
 import UIKit
+import Parse
+import ParseUI
 
 class InstagramPost: UITableViewCell {
 
-    @IBOutlet weak var pictureImageView: UIImageView!
     
+    @IBOutlet weak var pictureImageView: PFImageView!
     @IBOutlet weak var captionLabel: UILabel!
+    
+    var instagramPost: PFObject! {
+        didSet {
+            
+            print("This was run")
+            
+            self.pictureImageView.file = instagramPost["media"] as? PFFile
+            self.pictureImageView.loadInBackground()
+            
+            self.captionLabel.text = instagramPost["caption"] as? String
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
