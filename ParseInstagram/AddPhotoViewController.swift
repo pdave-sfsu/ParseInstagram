@@ -64,6 +64,9 @@ class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate,
             
             if success {
                 print("Photo got posted")
+                
+                
+                
             } else {
                 print("Photo error!")
             }

@@ -9,12 +9,59 @@
 import UIKit
 import Parse
 
-class TimelineViewController: UIViewController {
+class TimelineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var tableView: UITableView!
+    
+    var posts: [PFObject]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        tableView.reloadData()
+        
+        networkCall();
+
 
         // Do any additional setup after loading the view.
+    }
+    
+    func networkCall() {
+//        var query = PFQuery(className: "Post")
+//        
+//        query.getObjectInBackground(withId: "imkmJsHVIH") { (post: PFObject?, error: Error?) in
+//            if error == nil {
+//                print(post)
+//            } else {
+//                print(error)
+//            }
+//        }
+        
+        let query = PFQuery(className: "Post")
+        query.order(byDescending: "createdAt")
+        query.includeKey("author")
+        query.limit = 20
+        
+        query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
+            if let posts = posts {
+                // do something with the data fetched
+                print(posts)
+                
+                self.posts = posts
+                
+            } else {
+                // handle error
+            }
+        }
+        tableView.reloadData()
+
+        
+        
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,6 +80,38 @@ class TimelineViewController: UIViewController {
         }
 
         
+        
+    }
+    
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if let posts = posts {
+            return posts.count
+        } else {
+            return 0
+        }
+        
+    }
+    
+    
+    // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
+    // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
+    
+    @available(iOS 2.0, *)
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "InstagramPost", for: indexPath) as! InstagramPost
+        
+        let post = posts?[indexPath.row]
+        
+        let image = post?["media"] as? UIImage
+        let caption = post?["caption"] as? String
+        
+        cell.pictureImageView.image = image
+        
+        cell.captionLabel.text = caption
+        
+        return cell
         
     }
 

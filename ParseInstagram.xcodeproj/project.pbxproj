@@ -16,6 +16,7 @@
 		A55EAC101E60F7CA00E14F97 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55EAC0F1E60F7CA00E14F97 /* TimelineViewController.swift */; };
 		A55EAC121E60FF5500E14F97 /* AddPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55EAC111E60FF5500E14F97 /* AddPhotoViewController.swift */; };
 		A55EAC141E61233400E14F97 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55EAC131E61233400E14F97 /* Post.swift */; };
+		A55EAC171E612A4A00E14F97 /* InstagramPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55EAC161E612A4A00E14F97 /* InstagramPost.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		A55EAC0F1E60F7CA00E14F97 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		A55EAC111E60FF5500E14F97 /* AddPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPhotoViewController.swift; sourceTree = "<group>"; };
 		A55EAC131E61233400E14F97 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		A55EAC161E612A4A00E14F97 /* InstagramPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstagramPost.swift; sourceTree = "<group>"; };
 		CF63C8A0B1BB4171FA674E06 /* Pods_ParseInstagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParseInstagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -84,6 +86,7 @@
 		A55EABF61E5FD68600E14F97 /* ParseInstagram */ = {
 			isa = PBXGroup;
 			children = (
+				A55EAC151E612A2600E14F97 /* Cell */,
 				A55EAC0C1E60F28600E14F97 /* Model */,
 				A55EAC0B1E60F27900E14F97 /* ViewController */,
 				A55EABF71E5FD68600E14F97 /* AppDelegate.swift */,
@@ -111,6 +114,14 @@
 				A55EAC131E61233400E14F97 /* Post.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		A55EAC151E612A2600E14F97 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				A55EAC161E612A4A00E14F97 /* InstagramPost.swift */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +251,7 @@
 				A55EAC121E60FF5500E14F97 /* AddPhotoViewController.swift in Sources */,
 				A55EABF81E5FD68600E14F97 /* AppDelegate.swift in Sources */,
 				A55EAC101E60F7CA00E14F97 /* TimelineViewController.swift in Sources */,
+				A55EAC171E612A4A00E14F97 /* InstagramPost.swift in Sources */,
 				A55EAC141E61233400E14F97 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
