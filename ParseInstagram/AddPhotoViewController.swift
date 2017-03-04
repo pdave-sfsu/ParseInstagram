@@ -36,10 +36,15 @@ class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate,
         
         // Get the image captured by the UIImagePickerController
         let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
+        let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage
         
         //Set image to the global image property
-        image = originalImage
+        if let editedImage = editedImage {
+            image = editedImage
+        } else {
+            image = originalImage
+        }
+        
         
         //Change the imageView
         photoImageView.image = image
