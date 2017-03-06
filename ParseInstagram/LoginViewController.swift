@@ -18,10 +18,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     
 
+    //ViewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 
     
@@ -31,7 +31,7 @@ class LoginViewController: UIViewController {
         //Parse built-in method to log in an existing user. Sends username and password
         PFUser.logInWithUsername(inBackground: usernameField.text!, password: passwordField.text!) { (user: PFUser?, error: Error?) in
             
-            //If user is not empty
+            //If user is not empty, it means that they user logged in
             if user != nil {
                 
                 //Segue to timeline
@@ -52,6 +52,7 @@ class LoginViewController: UIViewController {
         let newUser = PFUser()
         
         //Set the username and password
+        //parse with automatically hash the password, so they are secure
         newUser.username = usernameField.text
         newUser.password = passwordField.text
         
@@ -66,7 +67,7 @@ class LoginViewController: UIViewController {
                 
                 //Error
             } else {
-                print("LoginViewController/onSignUp Error: \(error?.localizedDescription)")
+                print("LoginViewController/onSignUp Error: \(error!.localizedDescription)")
             }
         }
     }

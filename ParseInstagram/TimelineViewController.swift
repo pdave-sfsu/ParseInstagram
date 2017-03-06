@@ -21,6 +21,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     var posts: [PFObject]?
     
     
+    //viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,8 +31,6 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         
         //Network Call
         networkCall()
-
-        // Do any additional setup after loading the view.
     }
     
     
@@ -68,7 +67,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     //logout Button Pressed
     @IBAction func logoutButtonPressed(_ sender: Any) {
         
-        //built-in Parse methof
+        //built-in Parse method
         PFUser.logOutInBackground { (error: Error?) in
             
             //if no error

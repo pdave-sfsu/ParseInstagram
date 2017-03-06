@@ -21,8 +21,10 @@ class InstagramPost: UITableViewCell {
     @IBOutlet weak var captionLabel: UILabel!
     
     //the PFObject being returned from Parse
+    //Needs to be deserialized
     var instagramPost: PFObject! {
     
+        //sets the outlets with the approprate values
         didSet {
             
             //retrieves the picture file and then loads the image

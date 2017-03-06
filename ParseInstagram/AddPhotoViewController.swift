@@ -24,27 +24,27 @@ class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate,
     var image: UIImage?
     
     
+    //viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 
 
     //Method to handle choosing an image from the photo library
+    //Built into UIImagePickerControllerDelegate
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         // Get the image captured by the UIImagePickerController
         let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage
         
-        //Set image to the global image property
+        //Set edited image to the global image property
         if let editedImage = editedImage {
             image = editedImage
         } else {
             image = originalImage
         }
-        
         
         //Change the imageView
         photoImageView.image = image
@@ -64,11 +64,10 @@ class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate,
         vc.sourceType = UIImagePickerControllerSourceType.photoLibrary
         
         self.present(vc, animated: true, completion: nil)
-        
     }
     
     
-    //lets the user post an image with the caption
+    //submit Button action: lets the user post an image with the caption
     @IBAction func submitButtonPressed(_ sender: Any) {
         
         print("Submit button pressed")

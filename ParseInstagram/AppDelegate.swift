@@ -38,23 +38,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //reference the storyboard
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
-            //Get the InstagramNavigationController using storyboard ID
-            let vc = storyboard.instantiateViewController(withIdentifier: "InstagramNavigationController")
-            
-            //rootViewController determines the starting viewController
-            //Set the starting viewController to be timelineViewController
-            window?.rootViewController = vc
-            
-            
             //reference the timeline Navigation Controller by using the Storyboard ID
             //Cast it as UINavigationController
             let timelineNavigationController = storyboard.instantiateViewController(withIdentifier: "InstagramNavigationController") as! UINavigationController
             
+            //rootViewController determines the starting viewController
+            //Set the starting viewController to be timelineViewController
+            window?.rootViewController = timelineNavigationController
+            
             //Change the tab Bar title
             timelineNavigationController.tabBarItem.title = "Timeline"
             
-            //Adds the image onto the tab bar; 242px
-            //        timelineNavigationController.tabBarItem.image = UIImage(named: "nowPlaying24")
+            //Adds the image onto the tab bar; 24px
+            timelineNavigationController.tabBarItem.image = UIImage(named: "home")
             
             
             //reference the addPhoto Navigation Controller by using the Storyboard ID
@@ -65,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             addPhotoNavigationController.tabBarItem.title = "Add Photo"
             
             //Adds the image on the tab bar; 24px
-            //        addPhotoViewController.tabBarItem.image = UIImage(named: "topRated24")
+            addPhotoNavigationController.tabBarItem.image = UIImage(named: "camera")
             
             
             //Creating the TAB BAR
