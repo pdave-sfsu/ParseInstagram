@@ -16,8 +16,7 @@ class LoginViewController: UIViewController {
     //username and password Text Fields
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    
-
+        
     //ViewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +35,8 @@ class LoginViewController: UIViewController {
                 
                 //Segue to timeline
                 self.performSegue(withIdentifier: "loginSegue", sender: nil)
-
+                
+                
             //Error
             } else {
                 print("LoginViewController/onSignIn Error: \(error?.localizedDescription)")
