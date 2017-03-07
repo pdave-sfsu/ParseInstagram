@@ -33,40 +33,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //reference the storyboard
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         
-        
+        //reference of loginViewController using the Storyboard ID
         let loginViewController = mainStoryboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         
+        //reference to tabBar using the Storyboard ID
+        let tabBar = mainStoryboard.instantiateViewController(withIdentifier: "tabBarController")
         
-        //reference the timeline Navigation Controller by using the Storyboard ID
-        //Cast it as UINavigationController
-        let timelineNavigationController = mainStoryboard.instantiateViewController(withIdentifier: "InstagramNavigationController") as! UINavigationController
-        
-        //Change the tab Bar title
-        timelineNavigationController.tabBarItem.title = "Timeline"
-        
-        //Adds the image onto the tab bar; 24px
-        timelineNavigationController.tabBarItem.image = UIImage(named: "home")
-        
-        
-        //reference the addPhoto Navigation Controller by using the Storyboard ID
-        //Cast it as UINavigationController
-        let addPhotoNavigationController = mainStoryboard.instantiateViewController(withIdentifier: "addPhotoNavigationController") as! UINavigationController
-        
-        //Change the tab Bar title
-        addPhotoNavigationController.tabBarItem.title = "Add Photo"
-        
-        //Adds the image on the tab bar; 24px
-        addPhotoNavigationController.tabBarItem.image = UIImage(named: "camera")
-        
-        
-        //Creating the TAB BAR
-        
-        //Initialized the tabBarController
-        let tabBarController = UITabBarController()
-        
-        //Added the two navigation controllers to the tab bar
-        tabBarController.viewControllers = [timelineNavigationController, addPhotoNavigationController]
-    
         
         //Navigation bar UI
         //            var navigationBarAppearace = UINavigationBar.appearance()
@@ -89,12 +61,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("There is a current user.")
             
             //rootViewController sets the initial view controller
-            window?.rootViewController = tabBarController
+            //tabBar will be the first viewController
+            window?.rootViewController = tabBar
             
         } else {
+            
+            //loginViewController will be first viewController
             window?.rootViewController = loginViewController
         }
         
+        //
         window?.makeKeyAndVisible()
         
         return true
