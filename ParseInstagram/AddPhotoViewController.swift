@@ -72,6 +72,8 @@ class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate,
         
         print("Submit button pressed")
         
+        self.photoCaptionTextField.text = ""
+        
         //built-in Parse method that posts the image
         //Specifically, creates an object that is saved on Parse servers
         Post.postUserImage(image: image, withCaption: photoCaptionTextField.text) { (success: Bool, error: Error?) in
@@ -80,11 +82,18 @@ class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate,
             if success {
                 print("Photo got posted")
                 
+                self.tabBarController?.selectedIndex = 0
+                
+                
+                
             //Error
             } else {
                 print("AddPhotoViewController/submitButtonPressed Error: \(error?.localizedDescription)")
             }
         }
+        
+        
+        
     }
     
     
