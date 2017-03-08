@@ -84,7 +84,9 @@ class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate,
                 
                 self.tabBarController?.selectedIndex = 0
                 
+                self.image = nil
                 
+                self.photoImageView.image = nil
                 
             //Error
             } else {
