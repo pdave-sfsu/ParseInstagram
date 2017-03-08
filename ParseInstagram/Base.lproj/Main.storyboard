@@ -145,9 +145,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eel-rX-PiZ">
-                                <rect key="frame" x="47" y="157" width="280" height="218"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="311"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add a Photo"/>
+                                <color key="backgroundColor" red="0.4002995466321243" green="0.4002995466321243" blue="0.4002995466321243" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" red="0.92922198830000002" green="0.92922198830000002" blue="0.92922198830000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="addAPhotoButtonPressed:" destination="Wc9-B5-pwS" eventType="touchUpInside" id="yjG-EV-0nN"/>
                                 </connections>
@@ -168,7 +172,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QP9-Cz-E7f">
-                                <rect key="frame" x="47" y="157" width="280" height="218"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="311"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -184,12 +188,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sem-Ks-foN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3516" y="134"/>
+            <point key="canvasLocation" x="3516" y="133.5832083958021"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="0Lc-Oq-8Ow">
             <objects>
-                <viewController id="Wns-gX-hJZ" sceneMemberID="viewController">
+                <viewController id="Wns-gX-hJZ" customClass="ProfileViewController" customModule="ParseInstagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bth-cQ-KpT"/>
                         <viewControllerLayoutGuide type="bottom" id="EjA-66-NvN"/>
@@ -271,11 +275,11 @@
             </objects>
             <point key="canvasLocation" x="1356" y="134"/>
         </scene>
-        <!--Item-->
+        <!--User-->
         <scene sceneID="PFq-cJ-Sm0">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Lbg-Os-YQz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="V30-7F-i3C"/>
+                    <tabBarItem key="tabBarItem" title="User" image="user" id="V30-7F-i3C"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vZp-Dp-PGr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -294,5 +298,6 @@
     <resources>
         <image name="camera" width="24" height="24"/>
         <image name="home" width="24" height="24"/>
+        <image name="user" width="24" height="24"/>
     </resources>
 </document>
