@@ -23,6 +23,8 @@ class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate,
     //specific image being posted
     var image: UIImage?
     
+    var caption: String?
+    
     
     //viewDidLoad()
     override func viewDidLoad() {
@@ -72,11 +74,13 @@ class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate,
         
         print("Submit button pressed")
         
+        caption = self.photoCaptionTextField.text
+        
         self.photoCaptionTextField.text = ""
         
         //built-in Parse method that posts the image
         //Specifically, creates an object that is saved on Parse servers
-        Post.postUserImage(image: image, withCaption: photoCaptionTextField.text) { (success: Bool, error: Error?) in
+        Post.postUserImage(image: image, withCaption: caption) { (success: Bool, error: Error?) in
             
             //If success
             if success {
