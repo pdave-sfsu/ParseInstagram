@@ -78,6 +78,8 @@ class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate,
         
         self.photoCaptionTextField.text = ""
         
+        //ADD ERROR MESSAGE: IF IMAGE IS NULL, THEN SAY "PLEASE ADD AN IMAGE"
+        
         //built-in Parse method that posts the image
         //Specifically, creates an object that is saved on Parse servers
         Post.postUserImage(image: image, withCaption: caption) { (success: Bool, error: Error?) in
@@ -86,7 +88,15 @@ class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate,
             if success {
                 print("Photo got posted")
                 
+                //SEGUE (TRANSITION) TO TIMELINE
+                
                 self.tabBarController?.selectedIndex = 0
+                
+                
+                //Figure out way to refresh the timeline
+//                var timelineViewControllerCopy = UIViewController() as! TimelineViewController
+//                
+//                timelineViewControllerCopy.refreshControlAction(timelineViewControllerCopy.refreshControl)
                 
                 self.image = nil
                 
