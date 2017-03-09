@@ -9,6 +9,8 @@
 import UIKit
 //Parse
 import Parse
+//AFNetworking
+import AFNetworking
 
 //Home Timeline
 //import tableViewDelegate and tableViewDataSource
@@ -20,6 +22,8 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     //posts to be displayed
     var posts: [PFObject]?
     
+    var refreshControl = UIRefreshControl()
+    
     
     //viewDidLoad()
     override func viewDidLoad() {
@@ -29,7 +33,17 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.dataSource = self
         tableView.delegate = self
         
+        refreshControl.addTarget(self, action: #selector(TimelineViewController.refreshControlAction(_ :)), for: UIControlEvents.valueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
+        
         //Network Call
+        networkCall()
+    }
+    
+    func refreshControlAction(_ refreshControl: UIRefreshControl){
+        
+        //Turn on the ProgressHUD and make the networkRequestForMove()
+        //        MBProgressHUD.showAdded(to: self.view, animated: true)
         networkCall()
     }
     
@@ -55,6 +69,8 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
                 
                 //reloads data
                 self.tableView.reloadData()
+                
+                self.refreshControl.endRefreshing()
                 
             //Error
             } else {

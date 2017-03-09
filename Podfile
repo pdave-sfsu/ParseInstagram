@@ -7,6 +7,7 @@ target 'ParseInstagram' do
 
   pod 'Parse'
   pod 'ParseUI'
+  pod 'AFNetworking'
 
   # Pods for ParseInstagram
 
