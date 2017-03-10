@@ -80,6 +80,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onSignUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vcg-1Z-dHp"/>
+                                    <segue destination="D9U-gd-mMa" kind="show" id="CfN-bk-gyI"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -93,7 +94,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="456.80000000000001" y="133.5832083958021"/>
+            <point key="canvasLocation" x="446" y="-228"/>
         </scene>
         <!--Timeline-->
         <scene sceneID="GQU-IV-Gxc">
@@ -280,6 +281,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="77b-vz-K1H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2577" y="134"/>
+        </scene>
+        <!--Sign Up View Controller-->
+        <scene sceneID="m1o-ae-aNo">
+            <objects>
+                <viewController id="D9U-gd-mMa" customClass="SignUpViewController" customModule="ParseInstagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5ig-lt-XWF"/>
+                        <viewControllerLayoutGuide type="bottom" id="YR5-aw-epb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="h7g-vI-k2C">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="fullname" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1UV-qZ-z3Z">
+                                <rect key="frame" x="16" y="56" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="username" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DcA-2u-Jjn">
+                                <rect key="frame" x="16" y="108" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="password" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Fv-0D-uyL">
+                                <rect key="frame" x="16" y="177" width="301" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="profileCaption" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZaJ-9k-oPm">
+                                <rect key="frame" x="16" y="237" width="301" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="fullNameTextField" destination="1UV-qZ-z3Z" id="Wbc-Ff-VQh"/>
+                        <outlet property="passwordTextField" destination="4Fv-0D-uyL" id="VMD-7e-40O"/>
+                        <outlet property="profileCaptionTextField" destination="ZaJ-9k-oPm" id="6C5-PC-Ylr"/>
+                        <outlet property="userNameTextField" destination="DcA-2u-Jjn" id="xj2-1t-Wgx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uxz-BP-8cF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="445.60000000000002" y="506.89655172413796"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="zxV-kv-t1h">

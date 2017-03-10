@@ -13,6 +13,44 @@ import Parse
 //This class is meant to send posts to Parse
 class Post: NSObject {
     
+    var fullName: String?
+    var userName: String?
+    var profilePhoto: UIImage?
+    
+    var actualPhoto: UIImage?
+    var photoCaption: String?
+    var date: NSDate?
+    
+    
+    init(actualPhoto: UIImage, photoCaption: String, date: NSDate) {
+        
+        self.actualPhoto = actualPhoto
+        self.photoCaption = photoCaption
+        self.date = date
+        
+        let user = PFUser.current()
+        //        fullName =
+        userName = user?.username
+        //        profilePhoto =
+        
+    }
+    
+    
+    class func createNewPost(post: Post, withCompletion completion: PFBooleanResultBlock?) {
+        
+        let newPost = PFObject(className: "Post")
+        newPost["actualPhoto"] = getPFFileFromImage(image: post.actualPhoto)
+        newPost["photoCaption"] = post.photoCaption
+        newPost["date"] = post.date
+        
+        newPost["fullName"] = post.fullName
+        newPost["userName"] = post.userName
+        newPost["profilePhoto"] = getPFFileFromImage(image: post.profilePhoto)
+
+        newPost.saveInBackground(block: completion)
+        
+    }
+    
     //adds user post to Parse.
     //Parameters are image, caption, and completion block
     class func postUserImage(image: UIImage?, withCaption caption: String?, withCompletion completion: PFBooleanResultBlock?) {

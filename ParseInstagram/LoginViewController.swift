@@ -53,30 +53,22 @@ class LoginViewController: UIViewController {
     //When "Sign Up" button is pressed
     @IBAction func onSignUp(_ sender: Any) {
         
-        //Create the new user
-        let newUser = PFUser()
+//        //Create the new user
+//        let newUser = PFUser()
+//        
+//        //Set the username and password
+//        //parse with automatically hash the password, so they are secure
+//        newUser.username = usernameField.text
+//        newUser.password = passwordField.text
+//        
+//        newUser.add("HALLO" as Any, forKey: "tempKey")
         
-        //Set the username and password
-        //parse with automatically hash the password, so they are secure
-        newUser.username = usernameField.text
-        newUser.password = passwordField.text
         
-        newUser.add("HALLO" as Any, forKey: "tempKey")
+        //Segue to timeline
+//        self.performSegue(withIdentifier: "loginSegue", sender: nil)
         
-        //Use built-in Parse method to create the user
-        newUser.signUpInBackground { (success: Bool, error: Error?) in
-            
-            //If new user created.
-            if success {
-                
-                //Segue to timeline
-                self.performSegue(withIdentifier: "loginSegue", sender: nil)
-                
-                //Error
-            } else {
-                print("LoginViewController/onSignUp Error: \(error!.localizedDescription)")
-            }
-        }
+        print("Going to sign up page")
+       
     }
     
     

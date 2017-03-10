@@ -2,7 +2,7 @@
 //  User.swift
 //  ParseInstagram
 //
-//  Created by Poojan Dave on 2/24/17.
+//  Created by Poojan Dave on 3/9/17.
 //  Copyright © 2017 Poojan Dave. All rights reserved.
 //
 
@@ -11,50 +11,47 @@ import Parse
 
 class User: NSObject {
     
-    //Stores the current user
-    static var _currentUser: User?
+    var fullName: String?
+    var userName: String?
+    var password: String?
     
-    //class variable to get and set the current user; may be nil
-    class var currentUser: User? {
+    var profilePhoto: UIImage?
+    var profileCaption: String?
+    
+    var user: PFUser?
+    
+    
+    init(fullName: String, userName: String, password: String, profilePhoto: UIImage, profileCaption: String) {
         
-        get {
-            if _currentUser == nil {
-                
-                //userDefault to store the value of current user across restarts
-                let userDefault = UserDefaults.standard
-                
-                //retrieve the previous current user
-                _currentUser = userDefault.object(forKey: "currentUserData") as? User
-                
-            }
-            return _currentUser
-        }
+        self.fullName = fullName
+        self.userName = userName
+        self.password = password
+        self.profilePhoto = profilePhoto
+        self.profileCaption = profileCaption
         
-        //setting a current user
-        set(user) {
+        user = PFUser()
+        
+        user?.username = userName
+        user?.password = password
+        user?.add(fullName as Any, forKey: "fullName")
+        user?.add(profilePhoto as Any, forKey: "profilePhoto")
+        user?.add(profileCaption as Any, forKey: "profileCaption")
+        
+        
+        //Use built-in Parse method to create the user
+        user?.signUpInBackground { (success: Bool, error: Error?) in
             
-            //Sets currentUser with new user
-            _currentUser = user
-            
-            //initialize userDefaults
-            let userDefault = UserDefaults.standard
-            
-            //Safely unwrapping user
-            if let user = user {
+            //If new user created.
+            if success {
                 
-                //Saving the userData with key in UserDefaults
-                userDefault.set(user, forKey: "currentUserData")
+                print("New user created")
                 
-                //if user is empty
+                //Error
             } else {
-                
-                //Saving nil with key in userDefaults
-                userDefault.set(nil, forKey: "currentUserData")
+                print("LoginViewController/onSignUp Error: \(error!.localizedDescription)")
             }
-            
-            //synchronize() method saves the data
-            userDefault.synchronize()
         }
+        
     }
 
 }
