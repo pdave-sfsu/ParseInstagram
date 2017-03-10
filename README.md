@@ -30,6 +30,7 @@ The following **additional** features are implemented:
 - [X] List anything else that you can get done to improve the app functionality!
 - [X] Users can use an edited photo to display instead of the original image. For example, they can post a cropped photo instead of the whole image.
 - [X] Added RefreshControl. When the user posts a photo, it transitions to the Timeline
+- [X] Password is now private is more secure
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 

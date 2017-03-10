@@ -10,6 +10,10 @@ import UIKit
 //Parse
 import Parse
 
+
+//Add an alert if the user enters empty text for password or username: CHECK FOR BOTH
+
+
 //First viewController/ Login screen
 class LoginViewController: UIViewController {
 
