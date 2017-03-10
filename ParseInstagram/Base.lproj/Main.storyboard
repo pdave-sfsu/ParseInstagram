@@ -120,7 +120,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YOD-D9-xfQ" customClass="PFImageView">
-                                                    <rect key="frame" x="0.0" y="5" width="375" height="225"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Caption" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mi4-un-ufM">
@@ -161,7 +161,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V3d-bR-4jP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3516" y="-618"/>
+            <point key="canvasLocation" x="3516" y="-618.44077961019491"/>
         </scene>
         <!--Add Photo-->
         <scene sceneID="Mdn-mH-8BE">

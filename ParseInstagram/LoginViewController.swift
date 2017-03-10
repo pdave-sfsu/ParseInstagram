@@ -12,6 +12,7 @@ import Parse
 
 
 //Add an alert if the user enters empty text for password or username: CHECK FOR BOTH
+//ALERTS for incorrect username or password
 
 
 //First viewController/ Login screen

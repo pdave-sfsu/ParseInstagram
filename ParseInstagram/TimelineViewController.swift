@@ -40,6 +40,12 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         networkCall()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        //Network Call
+        networkCall()
+    }
+    
     func refreshControlAction(_ refreshControl: UIRefreshControl){
         
         //Turn on the ProgressHUD and make the networkRequestForMove()
@@ -67,6 +73,8 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
                 //sets global posts property
                 self.posts = posts
                 
+                print(posts)
+                
                 //reloads data
                 self.tableView.reloadData()
                 
@@ -93,6 +101,59 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
                 self.performSegue(withIdentifier: "logoutSegue", sender: nil)
             }
         }
+    }
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        if let posts = posts {
+            return posts.count
+        } else {
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let header = tableView.dequeueReusableHeaderFooterViewWithIdentifier(HeaderViewIdentifier) as UITableViewHeaderFooterView
+//        header.textLabel.text = posts[section]
+//        return header
+        
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
+//        headerView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+        // headerView.backgroundColor = UIColor(red:0.00, green:0.67, blue:0.93, alpha:0.3)
+        
+        // set & load avatar image
+        var profileView = UIImageView()
+        let myImage: UIImage = UIImage(named: "instagram")!
+        profileView = UIImageView(image: myImage)
+        profileView.frame = CGRect(x: 20, y: 10, width: 30, height: 30)
+        profileView.clipsToBounds = true
+        profileView.layer.cornerRadius = 15
+        profileView.layer.borderColor = UIColor.white.withAlphaComponent(0.9).cgColor
+        profileView.layer.borderWidth = 1;
+        headerView.addSubview(profileView)
+        
+        // set & load user name
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
+        label.center = CGPoint(x: 130, y: 25)
+        label.textColor = UIColor.lightGray
+        label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true
+        
+        let post = posts?[section]
+        
+        if let authorName = post?["username"] as? String {
+            label.text = authorName
+        } else {
+            label.text = "Temp"
+        }
+        
+        headerView.addSubview(label)
+        
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
     }
     
     
