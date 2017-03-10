@@ -29,16 +29,30 @@ class InstagramPost: UITableViewCell {
         didSet {
             
             //retrieves the picture file and then loads the image
-            self.pictureImageView.file = instagramPost["media"] as? PFFile
+            
+            if let photo = instagramPost["actualPhoto"] {
+                self.pictureImageView.file = photo as? PFFile
+            } else {
+                self.pictureImageView.file = instagramPost["media"] as? PFFile
+            }
+
             self.pictureImageView.loadInBackground()
             
             //retrieves the caption and displays it
-            self.captionLabel.text = instagramPost["caption"] as? String
+            
+            if let pictureCaption = instagramPost["photoCaption"] {
+                self.captionLabel.text = pictureCaption as? String
+            } else {
+                self.captionLabel.text = instagramPost["caption"] as? String
+            }
+            
             
             
             if let temp = instagramPost["date"] {
                 print(temp)
                 self.dateLabel.text = temp as? String
+            } else {
+                self.dateLabel.text = "Temp"
             }
             
         }
