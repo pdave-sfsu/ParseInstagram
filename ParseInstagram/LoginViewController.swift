@@ -6,45 +6,62 @@
 //  Copyright © 2017 Poojan Dave. All rights reserved.
 //
 
+
+// Add an alert if the user enters empty text for password or username: CHECK FOR BOTH
+// ALERTS for incorrect username or password
+//Change name of SignIn action to logIn action
+
 import UIKit
-//Parse
+// Parse
 import Parse
 
-
-//Add an alert if the user enters empty text for password or username: CHECK FOR BOTH
-//ALERTS for incorrect username or password
-
-
-//First viewController/ Login screen
+// First viewController/ Login screen
 class LoginViewController: UIViewController {
 
-    //username and password Text Fields
+    // username and password Text Fields
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
         
-    //ViewDidLoad()
+    // ViewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Print statement to know what viewController we're in
+        print("LoginViewController/ViewDidLoad()")
 
     }
 
     
-    //When "Sign in" button is pressed
+    // When "Sign in" button is pressed
     @IBAction func onSignIn(_ sender: Any) {
         
-        //Parse built-in method to log in an existing user. Sends username and password
-        PFUser.logInWithUsername(inBackground: usernameField.text!, password: passwordField.text!) { (user: PFUser?, error: Error?) in
+        // Extracting the username and password from the textField
+        let username = usernameField.text!
+        let password = passwordField.text!
+        
+        // Checking to see is the username and password are empty.
+        if username == "" {
+            print("Username field is empty")
             
-            //If user is not empty, it means that they user logged in
-            if user != nil {
+        } else if password == "" {
+            print("Password field is empty")
+            
+        // If username and password are not empty, then sign in
+        } else {
+            
+            //Parse built-in method to log in an existing user. Sends username and password
+            PFUser.logInWithUsername(inBackground: username, password: password) { (user: PFUser?, error: Error?) in
                 
-                //Segue to timeline
-                self.performSegue(withIdentifier: "loginSegue", sender: nil)
-                
-                
-            //Error
-            } else {
-                print("LoginViewController/onSignIn Error: \(error?.localizedDescription)")
+                //If user is not empty, it means that they user logged in
+                if user != nil {
+                    
+                    //Segue to timeline
+                    self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                    
+                    //Error
+                } else {
+                    print("LoginViewController/onSignIn() Error: \(error?.localizedDescription)")
+                }
             }
         }
     }
@@ -53,22 +70,7 @@ class LoginViewController: UIViewController {
     //When "Sign Up" button is pressed
     @IBAction func onSignUp(_ sender: Any) {
         
-//        //Create the new user
-//        let newUser = PFUser()
-//        
-//        //Set the username and password
-//        //parse with automatically hash the password, so they are secure
-//        newUser.username = usernameField.text
-//        newUser.password = passwordField.text
-//        
-//        newUser.add("HALLO" as Any, forKey: "tempKey")
-        
-        
-        //Segue to timeline
-//        self.performSegue(withIdentifier: "loginSegue", sender: nil)
-        
         print("Going to sign up page")
-       
     }
     
     
@@ -76,6 +78,7 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
     /*
     // MARK: - Navigation
