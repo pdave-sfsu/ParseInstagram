@@ -21,36 +21,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JiG-Re-ckq">
-                                <rect key="frame" x="115" y="134" width="133" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NTr-h9-aWs">
-                                <rect key="frame" x="115" y="287" width="133" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone number, email, or username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JiG-Re-ckq">
+                                <rect key="frame" x="16" y="134" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ry1-ur-RzH">
-                                <rect key="frame" x="164" y="376" width="47" height="30"/>
+                                <rect key="frame" x="16" y="376" width="343" height="71"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Sign In"/>
+                                <color key="backgroundColor" red="0.57468476361673748" green="1" blue="0.81975478109326505" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Log In">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="onSignIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oah-KH-oil"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdA-HC-uos">
-                                <rect key="frame" x="160" y="463" width="55" height="30"/>
+                                <rect key="frame" x="0.0" y="596" width="375" height="71"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Sign Up"/>
+                                <color key="backgroundColor" red="1" green="0.40784824285688748" blue="0.33608313144049928" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Don't have an account? Sign up.">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="onSignUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vcg-1Z-dHp"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NTr-h9-aWs">
+                                <rect key="frame" x="16" y="259" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -62,7 +70,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="458" y="134"/>
+            <point key="canvasLocation" x="456.80000000000001" y="133.5832083958021"/>
         </scene>
         <!--Timeline-->
         <scene sceneID="GQU-IV-Gxc">
@@ -85,7 +93,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="387"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="StD-zk-V8A" id="NAH-OG-uGE">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="386"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="387"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YOD-D9-xfQ" customClass="PFImageView">
@@ -231,11 +239,11 @@
             </objects>
             <point key="canvasLocation" x="2577" y="-618"/>
         </scene>
-        <!--Add Photo-->
+        <!--Capture-->
         <scene sceneID="8iQ-rZ-3gK">
             <objects>
                 <navigationController storyboardIdentifier="addPhotoNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="Bfk-sE-6lt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Add Photo" image="camera" selectedImage="camera" id="Uy9-OY-pwW"/>
+                    <tabBarItem key="tabBarItem" title="Capture" image="camera" selectedImage="camera" id="Uy9-OY-pwW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aXD-pZ-TDk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -269,11 +277,11 @@
             </objects>
             <point key="canvasLocation" x="1356" y="134"/>
         </scene>
-        <!--User-->
+        <!--Profile-->
         <scene sceneID="PFq-cJ-Sm0">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Lbg-Os-YQz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="User" image="user" id="V30-7F-i3C"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="user" id="V30-7F-i3C"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vZp-Dp-PGr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
