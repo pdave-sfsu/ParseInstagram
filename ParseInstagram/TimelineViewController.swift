@@ -73,7 +73,6 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
                 //sets global posts property
                 self.posts = posts
                 
-                print(posts)
                 
                 //reloads data
                 self.tableView.reloadData()
@@ -144,7 +143,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         if let authorName = post?["username"] as? String {
             label.text = authorName
         } else {
-            label.text = "Temp"
+            label.text = "Something went wrong"
         }
         
         headerView.addSubview(label)

@@ -61,6 +61,8 @@ class LoginViewController: UIViewController {
         newUser.username = usernameField.text
         newUser.password = passwordField.text
         
+        newUser.add("HALLO" as Any, forKey: "tempKey")
+        
         //Use built-in Parse method to create the user
         newUser.signUpInBackground { (success: Bool, error: Error?) in
             
