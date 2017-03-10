@@ -19,18 +19,21 @@ class Post: NSObject {
     
     var actualPhoto: UIImage?
     var photoCaption: String?
-    var date: NSDate?
+    var date: String?
     
     
-    init(actualPhoto: UIImage, photoCaption: String, date: NSDate) {
+    init(actualPhoto: UIImage, photoCaption: String, date: String) {
         
         self.actualPhoto = actualPhoto
         self.photoCaption = photoCaption
         self.date = date
         
         let user = PFUser.current()
-        //        fullName =
-        userName = user?.username
+        print(user)
+//        fullName = user?["fullName"] as! String?
+        print("fullName")
+        print(fullName)
+//        userName = user?.username
         //        profilePhoto =
         
     }
@@ -38,14 +41,30 @@ class Post: NSObject {
     
     class func createNewPost(post: Post, withCompletion completion: PFBooleanResultBlock?) {
         
+        print()
+        
         let newPost = PFObject(className: "Post")
         newPost["actualPhoto"] = getPFFileFromImage(image: post.actualPhoto)
         newPost["photoCaption"] = post.photoCaption
         newPost["date"] = post.date
         
-        newPost["fullName"] = post.fullName
-        newPost["userName"] = post.userName
-        newPost["profilePhoto"] = getPFFileFromImage(image: post.profilePhoto)
+        print(newPost)
+        
+        
+        let user = PFUser.current()
+        
+        print(user)
+        
+        newPost["fullName"] = user!["fullName"]
+        
+        print(newPost)
+        
+        newPost["userName"] = user!["username"]
+//        newPost["profilePhoto"] = getPFFileFromImage(image: post.profilePhoto)
+        
+        
+        
+        print(newPost)
 
         newPost.saveInBackground(block: completion)
         
@@ -64,6 +83,8 @@ class Post: NSObject {
         post["caption"] = caption
         post["likesCount"] = 0
         post["commentsCount"] = 0
+        
+        
         
         post["username"] = PFUser.current()?.username
         

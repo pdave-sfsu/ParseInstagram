@@ -25,6 +25,7 @@ class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate,
     
     var caption: String?
     
+    var timeStamp: String?
     
     //viewDidLoad()
     override func viewDidLoad() {
@@ -80,12 +81,20 @@ class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate,
         
         //ADD ERROR MESSAGE: IF IMAGE IS NULL, THEN SAY "PLEASE ADD AN IMAGE"
         
-        //built-in Parse method that posts the image
-        //Specifically, creates an object that is saved on Parse servers
-        Post.postUserImage(image: image, withCaption: caption) { (success: Bool, error: Error?) in
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
+        timeStamp = formatter.string(from: Date())
+        
+        print(timeStamp)
+        
+        
+        let post = Post.init(actualPhoto: image!, photoCaption: caption!, date: timeStamp!)
+        
+        
+        Post.createNewPost(post: post) { (success: Bool, error: Error?) in
             
-            //If success
             if success {
+                
                 print("Photo got posted")
                 
                 //SEGUE (TRANSITION) TO TIMELINE
@@ -94,23 +103,55 @@ class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate,
                 
                 
                 //Figure out way to refresh the timeline
-//                var timelineViewControllerCopy = UIViewController() as! TimelineViewController
-//                
-//                timelineViewControllerCopy.refreshControlAction(timelineViewControllerCopy.refreshControl)
+                //                var timelineViewControllerCopy = UIViewController() as! TimelineViewController
+                //
+                //                timelineViewControllerCopy.refreshControlAction(timelineViewControllerCopy.refreshControl)
                 
                 self.image = nil
                 
                 self.photoImageView.image = nil
                 
-            //Error
             } else {
                 print("AddPhotoViewController/submitButtonPressed Error: \(error?.localizedDescription)")
             }
+            
         }
         
         
         
+        //built-in Parse method that posts the image
+        //Specifically, creates an object that is saved on Parse servers
+//        Post.postUserImage(image: image, withCaption: caption) { (success: Bool, error: Error?) in
+//            
+//            //If success
+//            if success {
+//                print("Photo got posted")
+//                
+//                //SEGUE (TRANSITION) TO TIMELINE
+//                
+//                self.tabBarController?.selectedIndex = 0
+//                
+//                
+//                //Figure out way to refresh the timeline
+////                var timelineViewControllerCopy = UIViewController() as! TimelineViewController
+////                
+////                timelineViewControllerCopy.refreshControlAction(timelineViewControllerCopy.refreshControl)
+//                
+//                self.image = nil
+//                
+//                self.photoImageView.image = nil
+//                
+//            //Error
+//            } else {
+//                print("AddPhotoViewController/submitButtonPressed Error: \(error?.localizedDescription)")
+//            }
+//        }
+        
+        
+        
     }
+    
+
     
     
     //Never needed to resize image and seems to work fine without it

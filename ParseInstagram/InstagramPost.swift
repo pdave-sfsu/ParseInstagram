@@ -19,6 +19,7 @@ class InstagramPost: UITableViewCell {
     //pictureImageView is of type PFImageView, not UIImageView
     @IBOutlet weak var pictureImageView: PFImageView!
     @IBOutlet weak var captionLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
     //the PFObject being returned from Parse
     //Needs to be deserialized
@@ -33,6 +34,13 @@ class InstagramPost: UITableViewCell {
             
             //retrieves the caption and displays it
             self.captionLabel.text = instagramPost["caption"] as? String
+            
+            
+            if let temp = instagramPost["date"] {
+                print(temp)
+                self.dateLabel.text = temp as? String
+            }
+            
         }
     }
     
