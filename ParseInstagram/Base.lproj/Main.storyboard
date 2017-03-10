@@ -322,6 +322,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1B2-D0-sdK">
+                                <rect key="frame" x="139" y="318" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Sign Up"/>
+                                <connections>
+                                    <action selector="signUpButtonPressed:" destination="D9U-gd-mMa" eventType="touchUpInside" id="5RD-lJ-Ovg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -330,6 +338,7 @@
                         <outlet property="passwordTextField" destination="4Fv-0D-uyL" id="VMD-7e-40O"/>
                         <outlet property="profileCaptionTextField" destination="ZaJ-9k-oPm" id="6C5-PC-Ylr"/>
                         <outlet property="userNameTextField" destination="DcA-2u-Jjn" id="xj2-1t-Wgx"/>
+                        <segue destination="rxT-18-OOo" kind="presentation" identifier="loginSegueFromSignUp" id="pQx-qR-ZvD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uxz-BP-8cF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -382,4 +391,7 @@
         <image name="instagram" width="1000" height="1000"/>
         <image name="user" width="24" height="24"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="pQx-qR-ZvD"/>
+    </inferredMetricsTieBreakers>
 </document>
