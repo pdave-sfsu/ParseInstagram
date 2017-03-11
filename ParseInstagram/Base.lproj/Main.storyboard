@@ -89,7 +89,7 @@
                     <connections>
                         <outlet property="passwordField" destination="NTr-h9-aWs" id="vbr-oM-ztn"/>
                         <outlet property="usernameField" destination="JiG-Re-ckq" id="CgS-uU-DLT"/>
-                        <segue destination="rxT-18-OOo" kind="presentation" identifier="loginSegue" id="n7v-CN-DIx"/>
+                        <segue destination="rxT-18-OOo" kind="presentation" identifier="loginSegueFromLogin" id="n7v-CN-DIx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -124,15 +124,15 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQ7-BI-4n2">
-                                                    <rect key="frame" x="8" y="238" width="359" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Caption" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mi4-un-ufM">
+                                                    <rect key="frame" x="8" y="262" width="359" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Caption" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mi4-un-ufM">
-                                                    <rect key="frame" x="8" y="267" width="359" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pwN-tP-ko7">
+                                                    <rect key="frame" x="8" y="238" width="359" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -142,7 +142,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="captionLabel" destination="Mi4-un-ufM" id="K27-NE-nZ8"/>
-                                            <outlet property="dateLabel" destination="SQ7-BI-4n2" id="rCW-Yk-wem"/>
+                                            <outlet property="dateLabel" destination="pwN-tP-ko7" id="jrz-tt-aKK"/>
                                             <outlet property="pictureImageView" destination="YOD-D9-xfQ" id="0Jm-j9-CCT"/>
                                         </connections>
                                     </tableViewCell>
@@ -330,23 +330,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1B2-D0-sdK">
-                                <rect key="frame" x="139" y="318" width="55" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Sign Up"/>
-                                <connections>
-                                    <action selector="signUpButtonPressed:" destination="D9U-gd-mMa" eventType="touchUpInside" id="5RD-lJ-Ovg"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="fullNameTextField" destination="1UV-qZ-z3Z" id="Wbc-Ff-VQh"/>
-                        <outlet property="passwordTextField" destination="4Fv-0D-uyL" id="VMD-7e-40O"/>
-                        <outlet property="profileCaptionTextField" destination="ZaJ-9k-oPm" id="6C5-PC-Ylr"/>
                         <outlet property="userNameTextField" destination="DcA-2u-Jjn" id="xj2-1t-Wgx"/>
-                        <segue destination="rxT-18-OOo" kind="presentation" identifier="loginSegueFromSignUp" id="pQx-qR-ZvD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uxz-BP-8cF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -399,7 +388,4 @@
         <image name="instagram" width="1000" height="1000"/>
         <image name="user" width="24" height="24"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="pQx-qR-ZvD"/>
-    </inferredMetricsTieBreakers>
 </document>

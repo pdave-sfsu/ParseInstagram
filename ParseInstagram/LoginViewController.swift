@@ -16,7 +16,6 @@ import UIKit
 // Parse
 import Parse
 
-
 // First viewController/ Login screen
 class LoginViewController: UIViewController {
 
@@ -31,7 +30,7 @@ class LoginViewController: UIViewController {
     }
 
     
-    // When "Sign in" button is pressed
+    // When "Log in" button is pressed
     @IBAction func onSignIn(_ sender: Any) {
         
         // Extracting the username and password from the textField
@@ -55,7 +54,7 @@ class LoginViewController: UIViewController {
                 if user != nil {
                     
                     // Segue to timeline
-                    self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                    self.performSegue(withIdentifier: "loginSegueFromLogin", sender: nil)
                     
                     // Error
                 } else {
@@ -69,7 +68,6 @@ class LoginViewController: UIViewController {
     // When "Sign Up" button is pressed
     @IBAction func onSignUp(_ sender: Any) {
         
-        print("Going to sign up page")
     }
     
     

@@ -49,6 +49,7 @@ class InstagramPost: UITableViewCell {
             
             // retrieves the date and displays it
             if let date = instagramPost["date"] {
+                print(date)
                 self.dateLabel.text = date as? String
                 // If no date
             } else {
