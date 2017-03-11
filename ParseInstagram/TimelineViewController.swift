@@ -12,6 +12,7 @@
 //CHANGE THE HEIGHT OF THE SECTION HEADER IF NECESSARY
 // Make the header section look
 // Change the center of the label in the header
+// Make the imageView be responsive depending upon the size of the picture (specifically the height)
 
 import UIKit
 // Parse

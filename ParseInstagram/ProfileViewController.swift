@@ -28,21 +28,25 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Retrieve the current user
         let currentUser = PFUser.current()
         
+        // retrieve the current user fullName Array
         let fullNameArray = currentUser!["fullName"] as? [String]
-        
+        // Retrieve first element within the array
         let fullName = fullNameArray?[0]
         
+        // retrieve the profile caption
         let profileCaptionArray = currentUser?["profileCaption"] as? [String]
-        
         let profileCaption = profileCaptionArray?[0]
         
-        fullNameLabel.text = fullName
+        // set the values within the outlets
         userNameLabel.text = currentUser?["username"] as? String
+        fullNameLabel.text = fullName
         profileCaptionLabel.text = profileCaption
         
-//        profileImageView.setImageWith(nil, placeholderImage: "instagram")
+        // Temporary profileImage
+        profileImageView.image = UIImage(named: "instagram")
     }
 
     

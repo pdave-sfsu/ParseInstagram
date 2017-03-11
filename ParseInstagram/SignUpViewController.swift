@@ -48,6 +48,9 @@ class SignUpViewController: UIViewController {
         // Added new keys where necessary
         newUser.username = userName
         newUser.password = password
+        
+        // Need to create new keys
+        // Values within keys will be stored as arrays
         newUser.add(fullName as Any, forKey: "fullName")
         newUser.add(profileCaption as Any, forKey: "profileCaption")
         //        newUser?.add(profilePhoto as Any, forKey: "profilePhoto")
