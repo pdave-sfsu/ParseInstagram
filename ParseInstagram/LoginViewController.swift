@@ -27,9 +27,6 @@ class LoginViewController: UIViewController {
     // ViewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Print statement to know what viewController we're in
-        print("LoginViewController/ViewDidLoad()")
 
     }
 
