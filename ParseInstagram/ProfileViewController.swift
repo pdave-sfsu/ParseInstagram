@@ -11,17 +11,38 @@ import UIKit
 import Parse
 
 
-//
+// Let the user change their profile photo
 
 
+// ProfileView: User can see their profile
 class ProfileViewController: UIViewController {
 
+    // outlets
+    @IBOutlet weak var fullNameLabel: UILabel!
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var profileCaptionLabel: UILabel!
+    @IBOutlet weak var profileImageView: UIImageView!
+    
+    
     //viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        print("ProfileViewController/viewDidLoad()")
-
+        
+        let currentUser = PFUser.current()
+        
+        let fullNameArray = currentUser!["fullName"] as? [String]
+        
+        let fullName = fullNameArray?[0]
+        
+        let profileCaptionArray = currentUser?["profileCaption"] as? [String]
+        
+        let profileCaption = profileCaptionArray?[0]
+        
+        fullNameLabel.text = fullName
+        userNameLabel.text = currentUser?["username"] as? String
+        profileCaptionLabel.text = profileCaption
+        
+//        profileImageView.setImageWith(nil, placeholderImage: "instagram")
     }
 
     
