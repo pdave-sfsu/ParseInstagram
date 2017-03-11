@@ -9,6 +9,7 @@
 
 //Fix the subheadings; understand the methods involved
 // REMOVE LOGOUT BUTTON: Move to Profile view
+//CHANGE THE HEIGHT OF THE SECTION HEADER IF NECESSARY
 
 import UIKit
 // Parse
@@ -133,7 +134,8 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "InstagramPost", for: indexPath) as! InstagramPost
         
         // Retrieve proper post
-        let post = posts?[indexPath.row]
+        // Make sure that you use indexPath.section. Now indexPath.row. Since we are going by section. Not row within section
+        let post = posts?[indexPath.section]
         
         // set post within InstagramPost class
         cell.instagramPost = post
@@ -154,7 +156,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     
-    // heightForHeightInSection: 
+    // heightForHeightInSection
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
     }
