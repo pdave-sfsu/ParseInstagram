@@ -52,7 +52,8 @@ class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate,
         let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage
         
-        // Set edited image to the global image property
+        // If editedImage exists, set edited image to the global image property
+        // Else set the originalImage to global image property
         if let editedImage = editedImage {
             image = editedImage
         } else {
@@ -142,7 +143,7 @@ class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate,
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
     }
 
     

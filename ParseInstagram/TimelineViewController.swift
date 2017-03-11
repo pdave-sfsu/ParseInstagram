@@ -208,7 +208,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         
         // Extract the authorName from post and set the label text to the userName
         // If there is no userName, then set it pre-determined String
-        if let authorName = post?["username"] as? String {
+        if let authorName = post?["userName"] as? String {
             
             userName.text = authorName
             
@@ -227,7 +227,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
     }
 
     
