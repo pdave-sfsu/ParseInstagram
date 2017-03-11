@@ -11,7 +11,8 @@ import UIKit
 import Parse
 
 
-//
+// Add Cancel button
+// Fix transition between the loginViewController and the SignUpViewController (consider navigation controller)
 
 
 // Sign Up Page
@@ -30,7 +31,7 @@ class SignUpViewController: UIViewController {
 
     }
 
-
+    
     // SignUpButton action: Signs up a new user
     @IBAction func signUpButtonPressed(_ sender: Any) {
         
@@ -61,15 +62,14 @@ class SignUpViewController: UIViewController {
                 
                 // Segues to the TimelineViewController
                 self.performSegue(withIdentifier: "loginSegueFromSignUp", sender: nil)
-
+                
                 //Error
             } else {
                 print("LoginViewController/onSignUp Error: \(error!.localizedDescription)")
             }
         }
-        
     }
-    
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
