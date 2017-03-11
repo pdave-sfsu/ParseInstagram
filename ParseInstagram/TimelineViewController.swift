@@ -10,6 +10,8 @@
 //Fix the subheadings; understand the methods involved
 // REMOVE LOGOUT BUTTON: Move to Profile view
 //CHANGE THE HEIGHT OF THE SECTION HEADER IF NECESSARY
+// Make the header section look
+// Change the center of the label in the header
 
 import UIKit
 // Parse
@@ -119,14 +121,6 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     
-    // numberOfRowsInSection
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        //Only one row per section
-        return 1
-    }
-    
-    
     // cellForRowAt
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -141,6 +135,14 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         cell.instagramPost = post
         
         return cell
+    }
+    
+    
+    // numberOfRowsInSection
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        //Only one row per section
+        return 1
     }
     
     
@@ -164,53 +166,71 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     
     // viewForHeaderInSection:
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        //        let header = tableView.dequeueReusableHeaderFooterViewWithIdentifier(HeaderViewIdentifier) as UITableViewHeaderFooterView
-        //        header.textLabel.text = posts[section]
-        //        return header
         
+        // Create the headerView
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
-        //        headerView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
-        // headerView.backgroundColor = UIColor(red:0.00, green:0.67, blue:0.93, alpha:0.3)
         
-        // set & load avatar image
-        var profileView = UIImageView()
-        let myImage: UIImage = UIImage(named: "instagram")!
-        profileView = UIImageView(image: myImage)
-        profileView.frame = CGRect(x: 20, y: 10, width: 30, height: 30)
-        profileView.clipsToBounds = true
-        profileView.layer.cornerRadius = 15
-        profileView.layer.borderColor = UIColor.white.withAlphaComponent(0.9).cgColor
-        profileView.layer.borderWidth = 1;
-        headerView.addSubview(profileView)
+        // Change the background color
+        headerView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+        headerView.backgroundColor = UIColor(red:0.00, green:0.67, blue:0.93, alpha:0.3)
         
-        // set & load user name
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
-        label.center = CGPoint(x: 130, y: 25)
-        label.textColor = UIColor.lightGray
-        label.textAlignment = .center
-        label.adjustsFontSizeToFitWidth = true
+        // Retrieving image
+        let userImage: UIImage = UIImage(named: "instagram")!
         
+        // Create the imageView
+        let profileImageView = UIImageView(image: userImage)
+        // Set the frame (coordinates are top right)
+        profileImageView.frame = CGRect(x: 20, y: 10, width: 30, height: 30)
+        
+        //?????
+        profileImageView.clipsToBounds = true
+        profileImageView.layer.cornerRadius = 15
+        profileImageView.layer.borderColor = UIColor.white.withAlphaComponent(0.9).cgColor
+        profileImageView.layer.borderWidth = 1
+        
+        // Insert into the headerView
+        headerView.addSubview(profileImageView)
+        
+        // Create the label
+        let userName = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
+        // Center of the label
+        userName.center = CGPoint(x: 130, y: 25)
+        // Color of the label text
+        userName.textColor = UIColor.black
+        // Center the text
+        userName.textAlignment = .center
+        
+        // ?????
+        userName.adjustsFontSizeToFitWidth = true
+        
+        // Retrieve the correct post to display
         let post = posts?[section]
         
+        // Extract the authorName from post and set the label text to the userName
+        // If there is no userName, then set it pre-determined String
         if let authorName = post?["username"] as? String {
-            label.text = authorName
+            
+            userName.text = authorName
+            
+            // If there is no userName
         } else {
-            label.text = "Something went wrong"
+            
+            userName.text = "No User"
         }
         
-        headerView.addSubview(label)
+        // Insert the label into the headerView
+        headerView.addSubview(userName)
         
         return headerView
     }
     
 
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
+    
     /*
     // MARK: - Navigation
 
