@@ -55,7 +55,10 @@ class Post: NSObject {
         
         print(user)
         
-        newPost["fullName"] = user!["fullName"]
+        if let fullNameExists = user!["fullName"] {
+            newPost["fullName"] = fullNameExists
+        }
+        
         
         print(newPost)
         
