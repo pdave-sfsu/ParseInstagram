@@ -7,9 +7,16 @@
 //
 
 import UIKit
+// Parse
+import Parse
+
+
+//
+
 
 class ProfileViewController: UIViewController {
 
+    //viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -17,6 +24,7 @@ class ProfileViewController: UIViewController {
 
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 

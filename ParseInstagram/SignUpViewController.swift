@@ -7,49 +7,53 @@
 //
 
 import UIKit
+// Parse
 import Parse
-import Dispatch
 
+
+//
+
+
+// Sign Up Page
 class SignUpViewController: UIViewController {
     
+    // outlets
     @IBOutlet weak var fullNameTextField: UITextField!
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var profileCaptionTextField: UITextField!
     
 
+    // viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+
+    // SignUpButton action: Signs up a new user
     @IBAction func signUpButtonPressed(_ sender: Any) {
         
+        // Extracted the paramters of the user
         let fullName = fullNameTextField.text
         let userName = userNameTextField.text
         let password = passwordTextField.text
         let profileCaption = profileCaptionTextField.text
         
-        var user: User?
+//        var user: User?
+//        
+//        user = User(fullName: fullName!, userName: userName!, password: password!, profilePhoto: nil, profileCaption: profileCaption!)
         
-        user = User(fullName: fullName!, userName: userName!, password: password!, profilePhoto: nil, profileCaption: profileCaption!)
+        // Created a new User of type PFUser()
+        let newUser = PFUser()
         
-        
-        var newUser = PFUser()
-        
+        // set the parameters of the new user
+        // Added new keys where necessary
         newUser.username = userName
         newUser.password = password
         newUser.add(fullName as Any, forKey: "fullName")
-//        newUser?.add(profilePhoto as Any, forKey: "profilePhoto")
         newUser.add(profileCaption as Any, forKey: "profileCaption")
-        
-        
+        //        newUser?.add(profilePhoto as Any, forKey: "profilePhoto")
         
         //Use built-in Parse method to create the user
         newUser.signUpInBackground { (success: Bool, error: Error?) in
@@ -57,19 +61,25 @@ class SignUpViewController: UIViewController {
             //If new user created.
             if success {
                 
-                print("New user created")
+                print("SignUpViewController/signUpButtonPressed(): New user created")
                 
+                // Segues to the TimelineViewController
                 self.performSegue(withIdentifier: "loginSegueFromSignUp", sender: nil)
 
-                
                 //Error
             } else {
                 print("LoginViewController/onSignUp Error: \(error!.localizedDescription)")
             }
         }
-
         
     }
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        
+    }
+    
 
     /*
     // MARK: - Navigation
