@@ -40,10 +40,6 @@ class SignUpViewController: UIViewController {
         let password = passwordTextField.text
         let profileCaption = profileCaptionTextField.text
         
-//        var user: User?
-//        
-//        user = User(fullName: fullName!, userName: userName!, password: password!, profilePhoto: nil, profileCaption: profileCaption!)
-        
         // Created a new User of type PFUser()
         let newUser = PFUser()
         

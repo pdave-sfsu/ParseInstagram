@@ -14,7 +14,7 @@ import Parse
 // ADD profile Photo
 
 
-// This class is meant to send posts to Parse
+// This class is meant to send posts to Parse; type NSObject
 // Contains the data schema for the Post object
 class Post: NSObject {
     
