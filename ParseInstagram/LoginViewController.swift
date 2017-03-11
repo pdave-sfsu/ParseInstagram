@@ -9,11 +9,13 @@
 
 // Add an alert if the user enters empty text for password or username: CHECK FOR BOTH
 // ALERTS for incorrect username or password
-//Change name of SignIn action to logIn action
+// Change name of SignIn action to logIn action
+
 
 import UIKit
 // Parse
 import Parse
+
 
 // First viewController/ Login screen
 class LoginViewController: UIViewController {
@@ -49,16 +51,16 @@ class LoginViewController: UIViewController {
         // If username and password are not empty, then sign in
         } else {
             
-            //Parse built-in method to log in an existing user. Sends username and password
+            // Parse built-in method to log in an existing user. Sends username and password
             PFUser.logInWithUsername(inBackground: username, password: password) { (user: PFUser?, error: Error?) in
                 
-                //If user is not empty, it means that they user logged in
+                // If user is not empty, it means that they user logged in
                 if user != nil {
                     
-                    //Segue to timeline
+                    // Segue to timeline
                     self.performSegue(withIdentifier: "loginSegue", sender: nil)
                     
-                    //Error
+                    // Error
                 } else {
                     print("LoginViewController/onSignIn() Error: \(error?.localizedDescription)")
                 }
@@ -67,7 +69,7 @@ class LoginViewController: UIViewController {
     }
 
     
-    //When "Sign Up" button is pressed
+    // When "Sign Up" button is pressed
     @IBAction func onSignUp(_ sender: Any) {
         
         print("Going to sign up page")
@@ -76,7 +78,7 @@ class LoginViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
     }
     
     
