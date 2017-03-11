@@ -7,92 +7,73 @@
 //
 
 import UIKit
-//Parse
+// Parse
 import Parse
 
-//This class is meant to send posts to Parse
+
+// ADD profile Photo
+
+
+// This class is meant to send posts to Parse
+// Contains the data schema for the Post object
 class Post: NSObject {
     
-    var fullName: String?
-    var userName: String?
+    // Properties representing the user
+    // Had to change the fullName and userName to Any, not String
+    var fullName: Any?
+    var userName: Any?
     var profilePhoto: UIImage?
     
+    // Properties representing the post
     var actualPhoto: UIImage?
     var photoCaption: String?
     var date: String?
     
     
+    // Initializes the properties of the Post
     init(actualPhoto: UIImage, photoCaption: String, date: String) {
         
+        // Setting properties of post
         self.actualPhoto = actualPhoto
         self.photoCaption = photoCaption
         self.date = date
         
+        // Setting properties of user
+        // Retrieving the information for current user
         let user = PFUser.current()
-        print(user)
-//        fullName = user?["fullName"] as! String?
-        print("fullName")
-        print(fullName)
-//        userName = user?.username
-        //        profilePhoto =
+        
+        // If fullName exists, then save it
+        if let fullNameExists = user!["fullName"] {
+            fullName = fullNameExists
+        }
+        
+        // If userName exists, then save it
+        if let userNameExists = user!["username"] {
+            userName = userNameExists
+        }
         
     }
     
     
+    // createNewPost: uses the Post to create postObject and send it to Parse
     class func createNewPost(post: Post, withCompletion completion: PFBooleanResultBlock?) {
         
-        print()
-        
+        // create newPost as a PFObject; class Post
         let newPost = PFObject(className: "Post")
+        
+        // save the actualPhoto, photoCaption, and date as keys
+        // Cast the actualPhoto as a PFFile
         newPost["actualPhoto"] = getPFFileFromImage(image: post.actualPhoto)
         newPost["photoCaption"] = post.photoCaption
         newPost["date"] = post.date
         
-        print(newPost)
+        // save the fullName and userName
+        newPost["fullName"] = post.fullName
+        newPost["userName"] = post.userName
         
-        
-        let user = PFUser.current()
-        
-        print(user)
-        
-        if let fullNameExists = user!["fullName"] {
-            newPost["fullName"] = fullNameExists
-        }
-        
-        
-        print(newPost)
-        
-        newPost["userName"] = user!["username"]
-//        newPost["profilePhoto"] = getPFFileFromImage(image: post.profilePhoto)
-        
-        
-        
-        print(newPost)
-
+        // save in background; save to Parse
         newPost.saveInBackground(block: completion)
         
-    }
-    
-    //adds user post to Parse.
-    //Parameters are image, caption, and completion block
-    class func postUserImage(image: UIImage?, withCaption caption: String?, withCompletion completion: PFBooleanResultBlock?) {
-        
-        // Create Parse object PFObject
-        let post = PFObject(className: "Post")
-        
-        // Add relevant fields to the object
-        post["media"] = getPFFileFromImage(image: image)
-        post["author"] = PFUser.current()
-        post["caption"] = caption
-        post["likesCount"] = 0
-        post["commentsCount"] = 0
-        
-        
-        
-        post["username"] = PFUser.current()?.username
-        
-        // Save object (following function will save the object in Parse asynchronously)
-        post.saveInBackground(block: completion)
     }
     
 
