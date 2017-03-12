@@ -47,6 +47,7 @@ class ProfileViewController: UIViewController {
         
         // Temporary profileImage
         profileImageView.image = UIImage(named: "instagram")
+        
     }
 
     
