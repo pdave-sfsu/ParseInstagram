@@ -50,6 +50,24 @@ class ProfileViewController: UIViewController {
     }
 
     
+    // Action for when logout Button Pessed
+    @IBAction func logoutButtonPressed(_ sender: Any) {
+        
+        // built-in Parse method
+        // Logs users out
+        PFUser.logOutInBackground { (error: Error?) in
+            
+            // if no error
+            if error == nil {
+                
+                // performs segue to loginViewController
+                self.performSegue(withIdentifier: "logoutSegue", sender: nil)
+            }
+        }
+    }
+    
+
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
