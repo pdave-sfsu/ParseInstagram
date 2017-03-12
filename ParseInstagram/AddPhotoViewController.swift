@@ -91,7 +91,7 @@ class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate,
         
         // DateFormatter
         let formatter = DateFormatter()
-        formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
+        formatter.dateFormat = "EEE MMM d HH:mm"
         timeStamp = formatter.string(from: Date())
                 
         // post created with the image, caption, and date

@@ -7,20 +7,21 @@
 //
 
 import UIKit
-//import Parse
+// import Parse
 import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    //window
+    // window
     var window: UIWindow?
 
-    //first method run when app opens
+    
+    // first method run when app opens
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        //Connects to the Parse account
-        //Has proper id's
+        // Connects to the Parse account
+        // Has proper id's
         Parse.initialize(
             with: ParseClientConfiguration(block: { (configuration:ParseMutableClientConfiguration) -> Void in
                 configuration.applicationId = "tempcodpath2"
@@ -30,47 +31,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         )
         
         
-        //reference the storyboard
+        // reference the storyboard
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         
-        //reference of loginViewController using the Storyboard ID
+        // reference of loginViewController using the Storyboard ID
         let loginViewController = mainStoryboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         
-        //reference to tabBar using the Storyboard ID
+        // reference to tabBar using the Storyboard ID
         let tabBar = mainStoryboard.instantiateViewController(withIdentifier: "tabBarController")
         
         
-        //Navigation bar UI
-        //            var navigationBarAppearace = UINavigationBar.appearance()
-        //
-        //            navigationBarAppearace.tintColor = UIColor.black
-        //            navigationBarAppearace.barTintColor = UIColor.orange
-        //
-        //            // change navigation item title color
-        //            navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.black]
-        
-        
-        //initialize window
+        // initialize window
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        
-        //if current user is present
-        //Uses Parse built-in method PFUser.current()
+        // if current user is present, then go to tab bar controller
+        // Else, go to loginViewController
+        // Uses Parse built-in method PFUser.current() to retrieve the current user
         if PFUser.current() != nil {
             
             print("There is a current user.")
             
-            //rootViewController sets the initial view controller
-            //tabBar will be the first viewController
+            // rootViewController sets the initial view controller
+            // tabBar will be the first viewController
             window?.rootViewController = tabBar
             
         } else {
             
-            //loginViewController will be first viewController
+            // loginViewController will be first viewController
             window?.rootViewController = loginViewController
         }
         
-        //
+        // ??????
         window?.makeKeyAndVisible()
         
         return true
