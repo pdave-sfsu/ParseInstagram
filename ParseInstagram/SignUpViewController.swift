@@ -108,6 +108,17 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
             if success {
                 
                 print("SignUpViewController/signUpButtonPressed(): New user created")
+               
+                PFUser.current()?["newProfilePicture"] = Post.getPFFileFromImage(image: self.profileImage)
+                PFUser.current()?.saveInBackground(block: { (success2: Bool, error2: Error?) in
+                    
+                    
+                    print("This worked")
+                    
+                })
+                
+                
+                
                 
                 // Segues to the TimelineViewController
                 self.performSegue(withIdentifier: "loginSegueFromSignUp", sender: nil)

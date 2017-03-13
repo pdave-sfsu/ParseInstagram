@@ -30,6 +30,8 @@ class InstagramPost: UITableViewCell {
             
             // retrieves the picture file and then loads the image
             if let photo = instagramPost["actualPhoto"] {
+                
+                print(photo)
                 // cast as a PFFile
                 self.pictureImageView.file = photo as? PFFile
             } else {

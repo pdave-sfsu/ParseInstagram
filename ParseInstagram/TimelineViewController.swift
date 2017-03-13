@@ -9,10 +9,12 @@
 
 //Fix the subheadings; understand the methods involved
 // REMOVE LOGOUT BUTTON: Move to Profile view
-//CHANGE THE HEIGHT OF THE SECTION HEADER IF NECESSARY
+// CHANGE THE HEIGHT OF THE SECTION HEADER IF NECESSARY
 // Make the header section look
 // Change the center of the label in the header
 // Make the imageView be responsive depending upon the size of the picture (specifically the height)
+// Try using the created_at key to retrieve the date
+// Make the date be something like (9 hours ago, or 5 minutes ago)
 
 import UIKit
 // Parse
@@ -129,7 +131,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "InstagramPost", for: indexPath) as! InstagramPost
         
         // Retrieve proper post
-        // Make sure that you use indexPath.section. Now indexPath.row. Since we are going by section. Not row within section
+        // Make sure that you use indexPath.section. Not indexPath.row. Since we are going by section. Not row within section
         let post = posts?[indexPath.section]
         
         // set post within InstagramPost class

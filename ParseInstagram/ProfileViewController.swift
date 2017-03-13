@@ -9,6 +9,7 @@
 import UIKit
 // Parse
 import Parse
+import ParseUI
 
 
 // Let the user change their profile photo
@@ -21,7 +22,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var profileCaptionLabel: UILabel!
-    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var profileImageView: PFImageView!
     
     
     //viewDidLoad()
@@ -46,7 +47,40 @@ class ProfileViewController: UIViewController {
         profileCaptionLabel.text = profileCaption
         
         // Temporary profileImage
-        profileImageView.image = UIImage(named: "instagram")
+//        profileImageView.image = UIImage(named: "instagram")
+        
+        
+//        let profilePhotoArray2 = currentUser?["profilePhoto"] as? [Any]
+//        let profilePhoto2 = profilePhotoArray2![0]
+//        
+//        
+//        print(profilePhotoArray2!)
+//        print(profilePhoto2)
+//        
+//        self.profileImageView.file = profilePhoto2 as? PFFile
+        
+        if let photo = currentUser?["newProfilePicture"] {
+            print("photo")
+            print(photo)
+            // cast as a PFFile
+            self.profileImageView.file = photo as? PFFile
+            profileImageView.loadInBackground()
+        } else {
+            // Old key used for photo; cast ad PFFile
+            profileImageView.image = UIImage(named: "instagram")
+        }
+//
+//
+//        if let profilePhotoArray = currentUser?["profilePhoto"] as? [PFFile] {
+//            
+//            let profilePhoto = profilePhotoArray[0]
+//            
+//            // cast as a PFFile
+//            self.profileImageView.file = profilePhoto
+//        } else {
+//            // Old key used for photo; cast ad PFFile
+//            profileImageView.image = UIImage(named: "instagram")
+//        }
         
     }
 
