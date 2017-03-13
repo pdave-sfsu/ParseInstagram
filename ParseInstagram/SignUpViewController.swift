@@ -55,7 +55,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
             profileImage = originalImage
         }
         
-        // Change the imageView
+        // Change the imageView with profileImage
         profileImageView.image = profileImage
         
         // Dismiss UIImagePickerController to go back to your original view controller
@@ -93,11 +93,13 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         newUser.username = userName
         newUser.password = password
         
-        // Need to create new keys
+        // Must create new keys
         // Values within keys will be stored as arrays
         newUser.add(fullName as Any, forKey: "fullName")
         newUser.add(profileCaption as Any, forKey: "profileCaption")
-        //        newUser?.add(profilePhoto as Any, forKey: "profilePhoto")
+        
+        let profileImagePFF = Post.getPFFileFromImage(image: profileImage)
+        newUser.add(profileImagePFF as Any, forKey: "profilePhoto")
         
         //Use built-in Parse method to create the user
         newUser.signUpInBackground { (success: Bool, error: Error?) in
