@@ -19,6 +19,7 @@
 import UIKit
 // Parse
 import Parse
+import ParseUI
 // AFNetworking
 import AFNetworking
 
@@ -170,6 +171,9 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     // viewForHeaderInSection:
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
+        // Retrieve the correct post to display
+        let post = posts?[section]
+        
         // Create the headerView
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
         
@@ -180,8 +184,9 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         // Retrieving image
         let userImage: UIImage = UIImage(named: "instagram")!
         
+        
         // Create the imageView
-        let profileImageView = UIImageView(image: userImage)
+        let profileImageView = PFImageView(image: userImage)
         // Set the frame (coordinates are top right)
         profileImageView.frame = CGRect(x: 20, y: 10, width: 30, height: 30)
         
@@ -191,6 +196,12 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         profileImageView.layer.borderColor = UIColor.white.withAlphaComponent(0.9).cgColor
         profileImageView.layer.borderWidth = 1
         
+        if let profilePhoto = post?["profilePhoto"] {
+            profileImageView.file = profilePhoto as? PFFile
+            profileImageView.loadInBackground()
+        }
+        
+
         // Insert into the headerView
         headerView.addSubview(profileImageView)
         
@@ -206,8 +217,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         // ?????
         userName.adjustsFontSizeToFitWidth = true
         
-        // Retrieve the correct post to display
-        let post = posts?[section]
+        
         
         // Extract the authorName from post and set the label text to the userName
         // If there is no userName, then set it pre-determined String

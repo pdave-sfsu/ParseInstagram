@@ -22,7 +22,7 @@ class Post: NSObject {
     // Had to change the fullName and userName to Any, not String
     var fullName: Any?
     var userName: Any?
-    var profilePhoto: UIImage?
+    var profilePhoto: Any?
     
     // Properties representing the post
     var actualPhoto: UIImage?
@@ -52,6 +52,10 @@ class Post: NSObject {
             userName = userNameExists
         }
         
+        if let profilePhotoExists = user!["newProfilePicture"] {
+            profilePhoto = profilePhotoExists
+        }
+        
     }
     
     
@@ -70,6 +74,7 @@ class Post: NSObject {
         // save the fullName and userName
         newPost["fullName"] = post.fullName
         newPost["userName"] = post.userName
+        newPost["profilePhoto"] = post.profilePhoto
         
         // save in background; save to Parse
         newPost.saveInBackground(block: completion)

@@ -9,9 +9,10 @@
 import UIKit
 // import Parse and ParseUI
 import Parse
+// ParseUI is used for images
 import ParseUI
 
-// cell for tableView
+// cell for Timeline tableView
 // Each instagramPost has an imageView and a caption
 class InstagramPost: UITableViewCell {
 
@@ -30,15 +31,13 @@ class InstagramPost: UITableViewCell {
             
             // retrieves the picture file and then loads the image
             if let photo = instagramPost["actualPhoto"] {
-                
-                print(photo)
                 // cast as a PFFile
                 self.pictureImageView.file = photo as? PFFile
             } else {
-                // Old key used for photo; cast ad PFFile
+                // Old key used for photo; cast as PFFile
                 self.pictureImageView.file = instagramPost["media"] as? PFFile
             }
-            // loads the picture
+            // loads the picture; DO NOT FORGET THIS
             self.pictureImageView.loadInBackground()
             
             // retrieves the caption and displays it
@@ -49,14 +48,14 @@ class InstagramPost: UITableViewCell {
                 self.captionLabel.text = instagramPost["caption"] as? String
             }
             
-            // retrieves the date and displays it
+            // retrieves the date and displays it; Date is stored as a string
             if let date = instagramPost["date"] {
                 self.dateLabel.text = date as? String
                 // If no date
             } else {
                 self.dateLabel.text = "No Date"
             }
-            
+
         }
     }
     
