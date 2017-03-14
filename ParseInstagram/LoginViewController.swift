@@ -9,6 +9,7 @@
 
 // Add an alert if the user enters empty text for password or username: CHECK FOR BOTH
 // ALERTS for incorrect username or password
+// All alerts for error codes in Parse
 // Change name of SignIn action to logIn action
 
 

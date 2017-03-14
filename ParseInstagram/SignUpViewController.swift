@@ -11,11 +11,13 @@ import UIKit
 import Parse
 
 
-// Add Cancel button
 // Fix transition between the loginViewController and the SignUpViewController (consider navigation controller)
+// Remove the button for the profile imageView (use tap Gesture Recognizer)
+// Add images to Photo Library of simulator
 
 
 // Sign Up Page
+// import UIImagePickerControllerDelegate, UINavigationControllerDelegate
 class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // outlets
@@ -62,6 +64,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         dismiss(animated: true, completion: nil)
     }
     
+    
     // addProfileImageButton action: Bring up the photo library for user to choose a photo
     @IBAction func addProfileImageButton(_ sender: Any) {
         
@@ -98,7 +101,9 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         newUser.add(fullName as Any, forKey: "fullName")
         newUser.add(profileCaption as Any, forKey: "profileCaption")
         
+        // Casting the profileImage as a PFFile and setting it to temporary variable
         let profileImagePFF = Post.getPFFileFromImage(image: profileImage)
+        // Adding a new key to store the profilePhoto
         newUser.add(profileImagePFF as Any, forKey: "profilePhoto")
         
         //Use built-in Parse method to create the user

@@ -12,8 +12,13 @@ import Parse
 // ParseUI is used for images
 import ParseUI
 
+
+// Make the section header using storyboard
+
+
 // cell for Timeline tableView
-// Each instagramPost has an imageView and a caption
+// Each instagramPost has an imageView, caption, and a date
+// Section header is not included
 class InstagramPost: UITableViewCell {
 
     // outlets
@@ -37,7 +42,7 @@ class InstagramPost: UITableViewCell {
                 // Old key used for photo; cast as PFFile
                 self.pictureImageView.file = instagramPost["media"] as? PFFile
             }
-            // loads the picture; DO NOT FORGET THIS
+            // loads the picture; DO NOT FORGET THIS           
             self.pictureImageView.loadInBackground()
             
             // retrieves the caption and displays it

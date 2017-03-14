@@ -11,7 +11,8 @@ import UIKit
 import Parse
 
 
-//
+// Use this model to sign in the User
+
 
 // User model; Type NSObject
 class User: NSObject {
@@ -34,6 +35,7 @@ class User: NSObject {
         self.profileCaption = profileCaption
         
     }
+    
     
     // logInUser
     class func logInUser(user: User?) {

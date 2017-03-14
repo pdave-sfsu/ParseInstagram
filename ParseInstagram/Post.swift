@@ -11,7 +11,8 @@ import UIKit
 import Parse
 
 
-// ADD profile Photo
+// Send date as raw data
+// Change the key for user profile picture
 
 
 // This class is meant to send posts to Parse; type NSObject
@@ -19,7 +20,7 @@ import Parse
 class Post: NSObject {
     
     // Properties representing the user
-    // Had to change the fullName and userName to Any, not String
+    // Had to change the fullName, userName, and profilePhoto to Any
     var fullName: Any?
     var userName: Any?
     var profilePhoto: Any?
