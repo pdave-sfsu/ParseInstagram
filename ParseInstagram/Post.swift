@@ -53,8 +53,10 @@ class Post: NSObject {
             userName = userNameExists
         }
         
-        if let profilePhotoExists = user!["newProfilePicture"] {
-            profilePhoto = profilePhotoExists
+        // ProfilePhoto getting extracted
+        if let profilePhotoExists = user!["profilePhoto"] as? [Any] {
+            // Need to save the first element
+            profilePhoto = profilePhotoExists[0]
         }
         
     }
