@@ -15,6 +15,7 @@ import Parse
 // ADD ERROR MESSAGE: IF IMAGE IS NULL, THEN SAY "PLEASE ADD AN IMAGE"
 // Fix Date Format (try to send the actual date for consistency)
 // SEGUE (TRANSITION) TO TIMELINE (add animation?)
+// Make the text field bigger and nicer
 
 
 // Posts the photo to Parse
@@ -24,6 +25,7 @@ class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate,
     // outlets
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var addAPhotoButton: UIButton!
+    
     @IBOutlet weak var photoCaptionTextField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
     
@@ -90,6 +92,7 @@ class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate,
         caption = self.photoCaptionTextField.text
         
         // DateFormatter
+        // Temporary solution; in the future, just hold the date in raw form
         let formatter = DateFormatter()
         formatter.dateFormat = "EEE MMM d HH:mm"
         timeStamp = formatter.string(from: Date())
@@ -112,6 +115,7 @@ class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate,
                 
                 //Remove the image, imageView, and the textField
                 self.image = nil
+                self.caption = nil
                 self.photoImageView.image = nil
                 self.photoCaptionTextField.text = ""
                 

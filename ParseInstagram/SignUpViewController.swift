@@ -14,6 +14,7 @@ import Parse
 // Fix transition between the loginViewController and the SignUpViewController (consider navigation controller)
 // Remove the button for the profile imageView (use tap Gesture Recognizer)
 // Add images to Photo Library of simulator
+// Keep the same key for the profileImage
 
 
 // Sign Up Page
@@ -114,17 +115,6 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
                 
                 print("SignUpViewController/signUpButtonPressed(): New user created")
                
-                PFUser.current()?["newProfilePicture"] = Post.getPFFileFromImage(image: self.profileImage)
-                PFUser.current()?.saveInBackground(block: { (success2: Bool, error2: Error?) in
-                    
-                    
-                    print("This worked")
-                    
-                })
-                
-                
-                
-                
                 // Segues to the TimelineViewController
                 self.performSegue(withIdentifier: "loginSegueFromSignUp", sender: nil)
                 

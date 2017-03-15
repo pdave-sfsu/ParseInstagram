@@ -19,9 +19,13 @@
 import UIKit
 // Parse
 import Parse
+// ParseUI
 import ParseUI
 // AFNetworking
 import AFNetworking
+
+
+// Fix the section header
 
 
 // Home Timeline
@@ -93,7 +97,6 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
                 // sets global posts property
                 self.posts = posts
                 
-                
                 // reloads data
                 self.tableView.reloadData()
                 
@@ -122,31 +125,6 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
                 self.performSegue(withIdentifier: "logoutSegue", sender: nil)
             }
         }
-    }
-    
-    
-    // cellForRowAt
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        // cell property. Cast as InstagramPost.
-        let cell = tableView.dequeueReusableCell(withIdentifier: "InstagramPost", for: indexPath) as! InstagramPost
-        
-        // Retrieve proper post
-        // Make sure that you use indexPath.section. Not indexPath.row. Since we are going by section. Not row within section
-        let post = posts?[indexPath.section]
-        
-        // set post within InstagramPost class
-        cell.instagramPost = post
-        
-        return cell
-    }
-    
-    
-    // numberOfRowsInSection
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        //Only one row per section
-        return 1
     }
     
     
@@ -196,14 +174,17 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         profileImageView.layer.borderColor = UIColor.white.withAlphaComponent(0.9).cgColor
         profileImageView.layer.borderWidth = 1
         
+        // if the profilePhotoExists
         if let profilePhoto = post?["profilePhoto"] {
+            // Set the photo; cast as PFFile
             profileImageView.file = profilePhoto as? PFFile
+            // loadInBackground(); MAKE SURE YOU DO THIS
             profileImageView.loadInBackground()
         }
         
-
         // Insert into the headerView
         headerView.addSubview(profileImageView)
+        
         
         // Create the label
         let userName = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
@@ -217,17 +198,13 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         // ?????
         userName.adjustsFontSizeToFitWidth = true
         
-        
-        
         // Extract the authorName from post and set the label text to the userName
         // If there is no userName, then set it pre-determined String
         if let authorName = post?["userName"] as? String {
-            
             userName.text = authorName
             
             // If there is no userName
         } else {
-            
             userName.text = "No User"
         }
         
@@ -237,10 +214,35 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         return headerView
     }
     
-
+    
+    // cellForRowAt
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        // cell property. Cast as InstagramPost.
+        let cell = tableView.dequeueReusableCell(withIdentifier: "InstagramPost", for: indexPath) as! InstagramPost
+        
+        // Retrieve proper post
+        // Make sure that you use indexPath.section. Not indexPath.row. Since we are going by section. Not row within section
+        let post = posts?[indexPath.section]
+        
+        // set post within InstagramPost class
+        cell.instagramPost = post
+        
+        return cell
+    }
+    
+    
+    // numberOfRowsInSection
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        // Only one row per section
+        return 1
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-
+        
     }
 
     

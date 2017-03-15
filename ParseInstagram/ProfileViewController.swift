@@ -13,6 +13,7 @@ import ParseUI
 
 
 // Let the user change their profile photo
+// Change the default photo to a generic image of a person
 
 
 // ProfileView: User can see their profile
@@ -46,41 +47,20 @@ class ProfileViewController: UIViewController {
         fullNameLabel.text = fullName
         profileCaptionLabel.text = profileCaption
         
-        // Temporary profileImage
-//        profileImageView.image = UIImage(named: "instagram")
-        
-        
-//        let profilePhotoArray2 = currentUser?["profilePhoto"] as? [Any]
-//        let profilePhoto2 = profilePhotoArray2![0]
-//        
-//        
-//        print(profilePhotoArray2!)
-//        print(profilePhoto2)
-//        
-//        self.profileImageView.file = profilePhoto2 as? PFFile
-        
-        if let photo = currentUser?["newProfilePicture"] {
-            print("photo")
-            print(photo)
-            // cast as a PFFile
-            self.profileImageView.file = photo as? PFFile
+        // retrieve the profilePhoto
+        if let profilePhotoArray = currentUser?["profilePhoto"] as? [Any] {
+            let profilePhoto = profilePhotoArray[0]
+            
+            // Setting the profilePhoto to the profileImageView and casting it as a PFFile
+            self.profileImageView.file = profilePhoto as? PFFile
+            // loadInBackgroun(); MAKE SURE YOU MEMBER THIS
             profileImageView.loadInBackground()
+            
+        // If profileImage doesn't exist
         } else {
-            // Old key used for photo; cast ad PFFile
+            // Default photo for all users
             profileImageView.image = UIImage(named: "instagram")
         }
-//
-//
-//        if let profilePhotoArray = currentUser?["profilePhoto"] as? [PFFile] {
-//            
-//            let profilePhoto = profilePhotoArray[0]
-//            
-//            // cast as a PFFile
-//            self.profileImageView.file = profilePhoto
-//        } else {
-//            // Old key used for photo; cast ad PFFile
-//            profileImageView.image = UIImage(named: "instagram")
-//        }
         
     }
 
@@ -101,7 +81,6 @@ class ProfileViewController: UIViewController {
         }
     }
     
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
