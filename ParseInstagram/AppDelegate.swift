@@ -30,7 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             })
         )
         
-        
         // reference the storyboard
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         

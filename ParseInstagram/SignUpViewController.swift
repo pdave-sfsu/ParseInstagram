@@ -15,6 +15,7 @@ import Parse
 // Remove the button for the profile imageView (use tap Gesture Recognizer)
 // Add images to Photo Library of simulator
 // Keep the same key for the profileImage
+// Show images with aspect ratio intact
 
 
 // Sign Up Page
