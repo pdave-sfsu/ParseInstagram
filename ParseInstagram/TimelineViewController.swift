@@ -7,7 +7,7 @@
 //
 
 
-//Fix the subheadings; understand the methods involved
+// Fix the subheadings; understand the methods involved
 // REMOVE LOGOUT BUTTON: Move to Profile view
 // CHANGE THE HEIGHT OF THE SECTION HEADER IF NECESSARY
 // Make the header section look
@@ -15,6 +15,8 @@
 // Make the imageView be responsive depending upon the size of the picture (specifically the height)
 // Try using the created_at key to retrieve the date
 // Make the date be something like (9 hours ago, or 5 minutes ago)
+// Fix the section header
+
 
 import UIKit
 // Parse
@@ -23,10 +25,6 @@ import Parse
 import ParseUI
 // AFNetworking
 import AFNetworking
-
-
-// Fix the section header
-
 
 // Home Timeline
 // import tableViewDelegate and tableViewDataSource

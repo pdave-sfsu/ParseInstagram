@@ -46,17 +46,29 @@ class Post: NSObject {
         // If fullName exists, then save it
         if let fullNameExists = user!["fullName"] {
             fullName = fullNameExists
+            
+            // Default String
+        } else {
+            fullName = ["No FullName"]
         }
         
         // If userName exists, then save it
         if let userNameExists = user!["username"] {
             userName = userNameExists
+            
+            // Default String
+        } else {
+            userName = "No UserName"
         }
         
         // ProfilePhoto getting extracted
         if let profilePhotoExists = user!["profilePhoto"] as? [Any] {
             // Need to save the first element
             profilePhoto = profilePhotoExists[0]
+            
+            // If no profilePhoto, then save a default image
+        } else {
+            profilePhoto = Post.getPFFileFromImage(image: UIImage(named: "instagram"))
         }
         
     }
